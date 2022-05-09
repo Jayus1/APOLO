@@ -7,753 +7,878 @@
         mc:Ignorable="d"
         Title="APOLO" Height="450" Width="800">
   <DockPanel>
-    <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="DarkGray" Height="30" TextAlignment="Center" FontSize="15"> Materias Tomadas:  Materias Disponibles: Materias Disponibles:</TextBlock>
+    <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="Gray" Height="30" TextAlignment="Center" FontSize="15"> Materias Tomadas:  Materias Disponibles: Materias Disponibles:</TextBlock>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
-      <StackPanel>
-        <Separator Height="10" Visibility="Hidden"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Primer Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP-095</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-117</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">ING-105</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-115</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-160</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">ORI-112</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-116</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-180</CheckBox>
-
-          <Label Grid.Column="1" Grid.Row="2"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,24,0">LENGUA ESPAÑOLA BASICA</Label>
-          <TextBlock Grid.Column="1" Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Center">ALGORITMOS COMPUTACIONALES</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4"  HorizontalAlignment="Center" VerticalAlignment="Center">INGLES I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">MATEMATICA DISCRETA</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">PRE-CALCULO</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">ORIENTACION UNIVERSITARIA</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">METODOLOGIA DE LA INVESTIGACION</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">INTROD. A LA FILOSOFIA</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">0</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-        </Grid>
-        <Separator Height="20" Visibility="Hidden"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Segundo Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP-181</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-164</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-165</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-204</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ING-115</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-170</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-190</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-191</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-150</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">LENGUA ESPAÑOLA I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">PROGRAMACION I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO PROGRAMACION I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">LOGICA COMPUTACIONAL</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INGLES II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">CALCULO I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">FISICA I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO FISICA I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">EDUCACION MEDIO AMBIENTE</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">0</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP095</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF117,MAT115, Co-Req. INF165</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF117,MAT115, Co-Req. INF164</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF117,MAT115</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ING105</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT160</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT160, Co-Req. MAT191</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT160, Co-Req. MAT190</TextBlock>
-
-        </Grid>
-        <Separator Visibility="Hidden" Height="20"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Tercer Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP-189</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-121</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-167</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-168</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ING-125</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-340</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-500</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-501</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">MED-750</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center">MED-755</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">LENGUA ESPAÑOLA II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">ANALISIS DE SISTEMAS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">PROGRAMACION II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE PROGRAMACION II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INGLES III</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">CALCULO II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">FISICA II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE FISICA II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">QUIMICA INORGANICA I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE QUIMICA INORGANICA</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">0</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP181</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF164,INF165</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF164,INF165 CoReq. INF168</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF164,INF165 CoReq. INF167</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ING115</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT170</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT190,MAT191 CoReq. MAT501</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT190,MAT191 CoReq. MAT500</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">CoReq. MED755</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center">CoReq. MED750</TextBlock>
-        </Grid>
-        <Separator Visibility="Hidden" Height="20"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Cuarto Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-100</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-105</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-171</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-172</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-173</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-385</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF-387</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">ING-165</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-350</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ELECTRICIDAD BASICA</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">TALLER DE ELECTRICIDAD BASICA</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">DISEÑO DE SISTEMAS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">PROGRAMACION III</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE PROGRAMACION III</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">BASE DE DATOS I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE BASE DE DATOS I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">INGLES TECNICO</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">CALCULO III</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">MAT500,MAT501 CoReq. IEL105</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">MAT500,MAT501 CoReq. IEL100</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF121,INF167,INF168</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF121,INF167,INF168 CoReq. INF173</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF121,INF167,INF168 CoReq. INF172</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF121,INF167,INF168 CoReq. INF387</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF121,INF167,INF168 CoReq. INF385</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">ING125</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">MAT340</TextBlock>
-        </Grid>
-        <Separator Visibility="Hidden" Height="20"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Quinto Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">DIB-520</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-420</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-440</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-445</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-481</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-482</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF-535</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-360</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-700</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">DIBUJO TECNICO</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">SEGURIDAD E HIGIENE INDUSTRIAL</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">ARQUITECTURA COMPUTACIONAL</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE ARQUITECTURA COMPUTACIONA</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">BASE DE DATOS II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE BASE DE DATOS II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">DISEÑO Y PROGRAMACION DE PAGINAS WEB</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">CALCULO IV</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">CULTURA Y CIVISMO</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">IEL100,IEL105,INF204 CoReq. INF445</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">IEL100,IEL105,INF204 CoReq. INF440</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF171,INF385,INF387 CoReq. INF482</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF171,INF385,INF387 CoReq. INF481</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF171,INF385,INF387</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT350</TextBlock>
-        </Grid>
-        <Separator Visibility="Hidden" Height="20"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Sexto Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">INF-184</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-185</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-213</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-214</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-225</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-331</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-135</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-140</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">SISTEMA OPERATIVO I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE SISTEMA OPERATIVO I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">ESTRUCTURA DE DATOS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE ESTRUCTURA DE DATOS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">PROYECTO INTEGRADOR I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">SEMINARIO INFORMATICA</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">ESTADISTICA PARA INGENIEROS I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">RELACIONES HUMANAS</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">5</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">INF440,INF445 CoReq. INF185</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF440,INF445 CoReq. INF184</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF172,INF173 CoReq. INF214</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF172,INF173 CoReq. INF213</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">Aprobar todas las asignaturas hasta el cuatrimestre 5, incluido.</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">Aprobar todas las asignaturas hasta el cuatrimestre 5, incluido.</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT340</TextBlock>
-        </Grid>
-        <Separator Visibility="Hidden" Height="20"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Septimo Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP-301</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-502</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-503</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-700</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-705</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-706</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-145</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-170</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">CURSO DE REDACCION</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INTELIGENCIA ARTIFICIAL</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE INTELIGENCIA ARTIFICIAL</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">COMPUTACION GRAFICA</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">METODOS NUMERICOS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE METODOS NUMERICOS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">ESTADISTICA PARA INGENIEROS II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">HISTORIA DOMINICANA</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP189</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF213,INF214 CoReq. INF503</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF213,INF214 CoReq. INF502</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF184,INF185,INF440,INF445</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">MAT360 CoReq. INF706</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT360 CoReq. INF705</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT135</TextBlock>
-        </Grid>
-        <Separator Visibility="Hidden" Height="20"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Octava Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">IID-725</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-241</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-810</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-840</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">INVESTIGACION OPERATIVA I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INGENIERIA SOFTWARE</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">AUDITORIA DE SISTEMAS INFORMATICOS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">PROGRAMACION DE DISPOSITIVOS MOVILES</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">MAT360</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF225</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF225</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF535,INF700</TextBlock>
-        </Grid>
-        <Separator Visibility="Hidden" Height="20"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-
-
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Noveno Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ADM-910</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-830</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-021</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-411</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-412</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-450</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF-910</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">LIDERAZGO Y DESEMPEÑO</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INVESTIGACION OPERATIVA II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">GESTION DE PROYECTO INFORMATICO</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">REDES Y COMUNICACIONES</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">LAB. DE REDES Y COMUNICACIONES</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INGENIERIA DE SOFTWARE II</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">PROGRAMACION DE VIDEO JUEGOS</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID725</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF241</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF184,INF185,INF440,INF445 CoReq. INF412</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF184,INF185,INF440,INF445 CoReq. INF411</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF241</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF700</TextBlock>
-        </Grid>
-        <Separator Visibility="Hidden" Height="20"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Decimo Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ADM-900</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-945</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-344</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-345</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-433</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-920</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">FORMACION DE EMPRENDEDORES</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INGENIERIA ECONOMICA</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">TELECOMUNICACION DE DATOS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE TELECOMUNICACION DATOS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ASEGURAMIENTOS DE CALIDAD DEL SOFTWARE</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">COMPILADORES</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Aprobar todas las asignaturas hasta el cuatrimestre 9, incluido.</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">MAT360</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF411,INF412 CoReq. INF345</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF411,INF412 CoReq. INF344</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF450</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF184,INF185,INF502,INF503</TextBlock>
-        </Grid>
-        <Separator Visibility="Hidden" Height="20"/>
-        <Grid  ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Decimo Primer Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">DPG-010</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-025</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-025</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-820</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-160</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ANTEPROYECTO DE GRADO</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">DISEÑO Y EVALUACIÓN DE PROYECTOS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">ALGORITMOS PARALELOS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">SEGURIDAD INFORMATICA</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ETICA PROFESIONAL</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ADM900</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID945</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF705,INF706</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF344,INF345</TextBlock>
-        </Grid>
-        <Separator Visibility="Hidden" Height="20"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-          </Grid.RowDefinitions>
-
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Decimo Segundo Cuatrimestre</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">INF-008</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">PROYECTO DE GRADO</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">6</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Aprobar todas las asignaturas hasta el cuatrimestre 11, incluido.</TextBlock>
-        </Grid>
-        <Separator Visibility="Hidden" Height="20"/>
-        <Grid ShowGridLines="True">
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-          </Grid.ColumnDefinitions>
-
-          <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-
-          </Grid.RowDefinitions>
-          <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Materias Electivas</TextBlock>
-          <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
-
-          <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-200</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-205</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-022</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-023</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-024</CheckBox>
-          <CheckBox Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-026</CheckBox>
-
-          <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">CIRCUITOS ELECT. I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">TALLER DE CIRCUITOS ELECTRICOS I</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">SISTEMA Y TECNOLOGIA DE INFORMACION</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">DOMOTICA Y ENTORNO INTELIGENTE</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ADMINISTRACION DE NEGOCIOS ELECTRONICOS</TextBlock>
-          <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">ROBOTICA</TextBlock>
-
-          <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-          <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
-
-          <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">IEL100,IEL105 CoReq. IEL205</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IEL100,IEL105 CoReq. IEL200</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF385,INF387</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF344,INF345</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF225</TextBlock>
-          <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF344,INF345</TextBlock>
-        </Grid>
-      </StackPanel>
-    </ScrollViewer>
+            <Border Margin="5,0,5,0">
+                <StackPanel>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray" Height="19.75"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray" Height="19.75"/>
+                        <Rectangle Name="RowESP095" Grid.Row="2" Grid.ColumnSpan="4" Fill="LightGreen"/>
+                        <Rectangle Name="RowINF117" Grid.Row="3" Grid.ColumnSpan="4" Fill="LightGreen"/>
+                        <Rectangle Name="RowING105" Grid.Row="4" Grid.ColumnSpan="4" Fill="LightGreen"/>
+                        <Rectangle Name="RowMAT115" Grid.Row="5" Grid.ColumnSpan="4" Fill="LightGreen"/>
+                        <Rectangle Name="RowMAT160" Grid.Row="6" Grid.ColumnSpan="4" Fill="LightGreen"/>
+                        <Rectangle Name="RowORI112" Grid.Row="7" Grid.ColumnSpan="4" Fill="LightGreen"/>
+                        <Rectangle Name="RowSOC116" Grid.Row="8" Grid.ColumnSpan="4" Fill="LightGreen"/>
+                        <Rectangle Name="RowSOC180" Grid.Row="9" Grid.ColumnSpan="4" Fill="LightGreen"/>
+                        
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Primer Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox Name="ESP095" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="ESP095_Checked">ESP-095</CheckBox>
+                        <CheckBox Name="INF117" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-117</CheckBox>
+                        <CheckBox Name="ING105" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">ING-105</CheckBox>
+                        <CheckBox Name="MAT115" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-115</CheckBox>
+                        <CheckBox Name="MAT160" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-160</CheckBox>
+                        <CheckBox Name="ORI112" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">ORI-112</CheckBox>
+                        <CheckBox Name="SOC116" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-116</CheckBox>
+                        <CheckBox Name="SOC180" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-180</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,24,0">LENGUA ESPAÑOLA BASICA</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Center">ALGORITMOS COMPUTACIONALES</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4"  HorizontalAlignment="Center" VerticalAlignment="Center">INGLES I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">MATEMATICA DISCRETA</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">PRE-CALCULO</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">ORIENTACION UNIVERSITARIA</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">METODOLOGIA DE LA INVESTIGACION</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">INTROD. A LA FILOSOFIA</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">0</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                    </Grid>
+
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon" Name="RowESP181"/>
+                        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon" Name="RowINF164"/>
+                        <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon" Name="RowINF165"/>
+                        <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon" Name="RowINF204"/>
+                        <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon" Name="RowING115"/>
+                        <Rectangle Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon" Name="RowMAT170"/>
+                        <Rectangle Grid.Row="8" Grid.ColumnSpan="4" Fill="Salmon" Name="RowMAT190"/>
+                        <Rectangle Grid.Row="9" Grid.ColumnSpan="4" Fill="Salmon" Name="RowMAT191"/>
+                        <Rectangle Grid.Row="10" Grid.ColumnSpan="4" Fill="LightGreen" Name="RowSOC150"/>
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Segundo Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox Name="ESP181" IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP-181</CheckBox>
+                        <CheckBox Name="INF164" IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-164</CheckBox>
+                        <CheckBox Name="INF165" IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-165</CheckBox>
+                        <CheckBox Name="INF204" IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-204</CheckBox>
+                        <CheckBox Name="ING115" IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ING-115</CheckBox>
+                        <CheckBox Name="MAT170" IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-170</CheckBox>
+                        <CheckBox Name="MAT190" IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-190</CheckBox>
+                        <CheckBox Name="MAT191" IsEnabled="False" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-191</CheckBox>
+                        <CheckBox Name="SOC150" IsEnabled="False" Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-150</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">LENGUA ESPAÑOLA I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">PROGRAMACION I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO PROGRAMACION I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">LOGICA COMPUTACIONAL</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INGLES II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">CALCULO I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">FISICA I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO FISICA I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">EDUCACION MEDIO AMBIENTE</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">0</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP095</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF117,MAT115, Co-Req. INF165</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF117,MAT115, Co-Req. INF164</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF117,MAT115</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ING105</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT160</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT160, Co-Req. MAT191</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT160, Co-Req. MAT190</TextBlock>
+
+                    </Grid>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Name="RowESP189" Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon" Height="15.90"/>
+                        <Rectangle Name="RowINF121" Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon" Height="15.70"/>
+                        <Rectangle Name="RowINF167" Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon" Height="15.80"/>
+                        <Rectangle Name="RowINF168" Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowING125" Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowMAT340" Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowMAT500" Grid.Row="8" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowMAT501" Grid.Row="9" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowMED750" Grid.Row="10" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowMED755" Grid.Row="11" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Tercer Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox Name="ESP189" IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP-189</CheckBox>
+                        <CheckBox Name="INF121" IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-121</CheckBox>
+                        <CheckBox Name="INF167" IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-167</CheckBox>
+                        <CheckBox Name="INF168" IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-168</CheckBox>
+                        <CheckBox Name="ING125" IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ING-125</CheckBox>
+                        <CheckBox Name="MAT340" IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-340</CheckBox>
+                        <CheckBox Name="MAT500" IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-500</CheckBox>
+                        <CheckBox Name="MAT501" IsEnabled="False" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-501</CheckBox>
+                        <CheckBox Name="MED750" IsEnabled="False" Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">MED-750</CheckBox>
+                        <CheckBox Name="MED755" IsEnabled="False" Grid.Column="0" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center">MED-755</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">LENGUA ESPAÑOLA II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">ANALISIS DE SISTEMAS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">PROGRAMACION II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE PROGRAMACION II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INGLES III</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">CALCULO II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">FISICA II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE FISICA II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">QUIMICA INORGANICA I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE QUIMICA INORGANICA</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">0</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP181</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF164,INF165</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF164,INF165 CoReq. INF168</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF164,INF165 CoReq. INF167</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ING115</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT170</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT190,MAT191 CoReq. MAT501</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT190,MAT191 CoReq. MAT500</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">CoReq. MED755</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center">CoReq. MED750</TextBlock>
+                    </Grid>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Name="RowIEL100" Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowIEL105" Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF171" Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF172" Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF173" Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF385" Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF387" Grid.Row="8" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowING165" Grid.Row="9" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowMAT350" Grid.Row="10" Grid.ColumnSpan="4" Fill="Salmon"/>
+
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Cuarto Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox Name="IEL100" IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-100</CheckBox>
+                        <CheckBox Name="IEL105" IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-105</CheckBox>
+                        <CheckBox Name="INF171" IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-171</CheckBox>
+                        <CheckBox Name="INF172" IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-172</CheckBox>
+                        <CheckBox Name="INF173" IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-173</CheckBox>
+                        <CheckBox Name="INF385" IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-385</CheckBox>
+                        <CheckBox Name="INF387" IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF-387</CheckBox>
+                        <CheckBox Name="ING165" IsEnabled="False" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">ING-165</CheckBox>
+                        <CheckBox Name="MAT350" IsEnabled="False" Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-350</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ELECTRICIDAD BASICA</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">TALLER DE ELECTRICIDAD BASICA</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">DISEÑO DE SISTEMAS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">PROGRAMACION III</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE PROGRAMACION III</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">BASE DE DATOS I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE BASE DE DATOS I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">INGLES TECNICO</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">CALCULO III</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">MAT500,MAT501 CoReq. IEL105</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">MAT500,MAT501 CoReq. IEL100</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF121,INF167,INF168</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF121,INF167,INF168 CoReq. INF173</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF121,INF167,INF168 CoReq. INF172</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF121,INF167,INF168 CoReq. INF387</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF121,INF167,INF168 CoReq. INF385</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">ING125</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">MAT340</TextBlock>
+                    </Grid>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Name="RowDIB520" Grid.Row="2" Grid.ColumnSpan="4" Fill="LightGreen" Height="15.75"/>
+                        <Rectangle Name="RowIID420" Grid.Row="3" Grid.ColumnSpan="4" Fill="LightGreen" Height="15.80"/>
+                        <Rectangle Name="RowINF440" Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon" Height="15.80"/>
+                        <Rectangle Name="RowINF445" Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF481" Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF482" Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF535" Grid.Row="8" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowMAT360" Grid.Row="9" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowSOC700" Grid.Row="10" Grid.ColumnSpan="4" Fill="LightGreen"/>
+
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Quinto Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox Name="DIB520" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">DIB-520</CheckBox>
+                        <CheckBox Name="IID420" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-420</CheckBox>
+                        <CheckBox Name="INF440" IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-440</CheckBox>
+                        <CheckBox Name="INF445" IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-445</CheckBox>
+                        <CheckBox Name="INF481" IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-481</CheckBox>
+                        <CheckBox Name="INF482" IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-482</CheckBox>
+                        <CheckBox Name="INF535" IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF-535</CheckBox>
+                        <CheckBox Name="MAT360" IsEnabled="False" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-360</CheckBox>
+                        <CheckBox Name="SOC700" IsEnabled="False" Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-700</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">DIBUJO TECNICO</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">SEGURIDAD E HIGIENE INDUSTRIAL</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">ARQUITECTURA COMPUTACIONAL</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE ARQUITECTURA COMPUTACIONA</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">BASE DE DATOS II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE BASE DE DATOS II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">DISEÑO Y PROGRAMACION DE PAGINAS WEB</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">CALCULO IV</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">CULTURA Y CIVISMO</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">IEL100,IEL105,INF204 CoReq. INF445</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">IEL100,IEL105,INF204 CoReq. INF440</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF171,INF385,INF387 CoReq. INF482</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF171,INF385,INF387 CoReq. INF481</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF171,INF385,INF387</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT350</TextBlock>
+                    </Grid>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="8" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="9" Grid.ColumnSpan="4" Fill="LightGreen"/>
+
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Sexto Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">INF-184</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-185</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-213</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-214</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-225</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-331</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-135</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-140</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">SISTEMA OPERATIVO I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE SISTEMA OPERATIVO I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">ESTRUCTURA DE DATOS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE ESTRUCTURA DE DATOS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">PROYECTO INTEGRADOR I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">SEMINARIO INFORMATICA</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">ESTADISTICA PARA INGENIEROS I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">RELACIONES HUMANAS</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">5</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">INF440,INF445 CoReq. INF185</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF440,INF445 CoReq. INF184</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF172,INF173 CoReq. INF214</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF172,INF173 CoReq. INF213</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">Aprobar todas las asignaturas hasta el cuatrimestre 5, incluido.</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">Aprobar todas las asignaturas hasta el cuatrimestre 5, incluido.</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT340</TextBlock>
+                    </Grid>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon" Height="15.80"/>
+                        <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon" Height="15.90"/>
+                        <Rectangle Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon" Height="15.80"/>
+                        <Rectangle Grid.Row="8" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="9" Grid.ColumnSpan="4" Fill="LightGreen"/>
+
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Septimo Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP-301</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-502</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-503</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-700</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-705</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-706</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-145</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-170</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">CURSO DE REDACCION</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INTELIGENCIA ARTIFICIAL</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE INTELIGENCIA ARTIFICIAL</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">COMPUTACION GRAFICA</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">METODOS NUMERICOS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE METODOS NUMERICOS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">ESTADISTICA PARA INGENIEROS II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">HISTORIA DOMINICANA</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP189</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF213,INF214 CoReq. INF503</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF213,INF214 CoReq. INF502</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF184,INF185,INF440,INF445</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">MAT360 CoReq. INF706</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT360 CoReq. INF705</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT135</TextBlock>
+                    </Grid>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
+
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Octava Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">IID-725</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-241</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-810</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-840</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">INVESTIGACION OPERATIVA I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INGENIERIA SOFTWARE</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">AUDITORIA DE SISTEMAS INFORMATICOS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">PROGRAMACION DE DISPOSITIVOS MOVILES</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">MAT360</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF225</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF225</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF535,INF700</TextBlock>
+                    </Grid>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="LightGreen"/>
+                        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="8" Grid.ColumnSpan="4" Fill="Salmon"/>
+
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Noveno Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ADM-910</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-830</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-021</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-411</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-412</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-450</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF-910</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">LIDERAZGO Y DESEMPEÑO</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INVESTIGACION OPERATIVA II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">GESTION DE PROYECTO INFORMATICO</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">REDES Y COMUNICACIONES</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">LAB. DE REDES Y COMUNICACIONES</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INGENIERIA DE SOFTWARE II</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">PROGRAMACION DE VIDEO JUEGOS</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID725</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF241</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF184,INF185,INF440,INF445 CoReq. INF412</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF184,INF185,INF440,INF445 CoReq. INF411</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF241</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF700</TextBlock>
+                    </Grid>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon" Height="15.70"/>
+                        <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon" Height="15.65"/>
+                        <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon" Height="15.70"/>
+                        <Rectangle Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon"/>
+
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Decimo Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ADM-900</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-945</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-344</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-345</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-433</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-920</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">FORMACION DE EMPRENDEDORES</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INGENIERIA ECONOMICA</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">TELECOMUNICACION DE DATOS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE TELECOMUNICACION DATOS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ASEGURAMIENTOS DE CALIDAD DEL SOFTWARE</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">COMPILADORES</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Aprobar todas las asignaturas hasta el cuatrimestre 9, incluido.</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">MAT360</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF411,INF412 CoReq. INF345</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF411,INF412 CoReq. INF344</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF450</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF184,INF185,INF502,INF503</TextBlock>
+                    </Grid>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="LightGreen"/>
+
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Decimo Primer Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">DPG-010</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-025</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-025</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-820</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-160</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ANTEPROYECTO DE GRADO</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">DISEÑO Y EVALUACIÓN DE PROYECTOS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">ALGORITMOS PARALELOS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">SEGURIDAD INFORMATICA</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ETICA PROFESIONAL</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">2</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ADM900</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID945</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF705,INF706</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF344,INF345</TextBlock>
+                    </Grid>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Decimo Segundo Cuatrimestre</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">INF-008</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">PROYECTO DE GRADO</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">6</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">Aprobar todas las asignaturas hasta el cuatrimestre 11, incluido.</TextBlock>
+                    </Grid>
+                    <Grid Background="Black">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+
+                        </Grid.RowDefinitions>
+                        <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
+                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon" Height="12"/>
+                        <Rectangle Grid.Row="8" Grid.ColumnSpan="4" Fill="Salmon"/>
+
+                        <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Materias Electivas</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
+
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-200</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-205</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-022</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-023</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-024</CheckBox>
+                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-026</CheckBox>
+
+                        <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">CIRCUITOS ELECT. I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">TALLER DE CIRCUITOS ELECTRICOS I</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">SISTEMA Y TECNOLOGIA DE INFORMACION</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">DOMOTICA Y ENTORNO INTELIGENTE</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">ADMINISTRACION DE NEGOCIOS ELECTRONICOS</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">ROBOTICA</TextBlock>
+
+                        <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">4</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">1</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">3</TextBlock>
+
+                        <TextBlock Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">IEL100,IEL105 CoReq. IEL205</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IEL100,IEL105 CoReq. IEL200</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF385,INF387</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF344,INF345</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF225</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF344,INF345</TextBlock>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </ScrollViewer>
   </DockPanel>
 </Window>

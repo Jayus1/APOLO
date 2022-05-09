@@ -24,5 +24,12 @@ namespace APOLO
         {
             InitializeComponent();
         }
+
+        private void ESP095_Checked(object sender, RoutedEventArgs e)
+        {
+            RowESP095.Fill = new SolidColorBrush(Colors.LightBlue);
+            ESP181.IsEnabled = true;
+            RowESP181.Fill= new SolidColorBrush(Colors.LightGreen);
+        }
     }
 }
