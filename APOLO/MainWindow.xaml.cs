@@ -48,7 +48,7 @@ namespace APOLO
             RowESP095.Fill = new SolidColorBrush(Colors.LightBlue);
             ESP181.IsEnabled = true;
             RowESP181.Fill= new SolidColorBrush(Colors.LightGreen);
-            //P.Status = (bool)ESP095.IsChecked;
+            //  P.Status = (bool)ESP095.IsChecked;
             MessageBox.Show(Convert.ToString(P.Status));
         }
 
