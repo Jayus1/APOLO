@@ -50,9 +50,9 @@
                         <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
                         <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
 
-                        <CheckBox Name="ESP095" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="ESP095_Checked">ESP-095</CheckBox>
-                        <CheckBox Name="INF117" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-117</CheckBox>
-                        <CheckBox Name="ING105" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">ING-105</CheckBox>
+                        <CheckBox Name="ESP095" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="ESP095_Checked" Unchecked="ESP095_Unchecked" IsChecked="{Con Binding ClassESP09.Status, Mode=OneWayToSource}">ESP-095</CheckBox>
+                        <CheckBox Name="INF117" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="INF117_Checked" Unchecked="INF117_Unchecked">INF-117</CheckBox>
+                        <CheckBox Name="ING105" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" >ING-105</CheckBox>
                         <CheckBox Name="MAT115" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-115</CheckBox>
                         <CheckBox Name="MAT160" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-160</CheckBox>
                         <CheckBox Name="ORI112" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">ORI-112</CheckBox>
@@ -368,7 +368,7 @@
                         <CheckBox Name="INF482" IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-482</CheckBox>
                         <CheckBox Name="INF535" IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">INF-535</CheckBox>
                         <CheckBox Name="MAT360" IsEnabled="False" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-360</CheckBox>
-                        <CheckBox Name="SOC700" IsEnabled="False" Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-700</CheckBox>
+                        <CheckBox Name="SOC700" Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-700</CheckBox>
 
                         <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">DIBUJO TECNICO</TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">SEGURIDAD E HIGIENE INDUSTRIAL</TextBlock>
@@ -443,7 +443,7 @@
                         <CheckBox Name="INF225" IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-225</CheckBox>
                         <CheckBox Name="INF331" IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-331</CheckBox>
                         <CheckBox Name="MAT135" IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-135</CheckBox>
-                        <CheckBox Name="SOC140" IsEnabled="False" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-140</CheckBox>
+                        <CheckBox Name="SOC140" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-140</CheckBox>
 
                         <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">SISTEMA OPERATIVO I</TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">LABORATORIO DE SISTEMA OPERATIVO I</TextBlock>
@@ -516,7 +516,7 @@
                         <CheckBox Name="INF705" IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-705</CheckBox>
                         <CheckBox Name="INF706" IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-706</CheckBox>
                         <CheckBox Name="MAT145" IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-145</CheckBox>
-                        <CheckBox Name="SOC170" IsEnabled="False" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-170</CheckBox>
+                        <CheckBox Name="SOC170" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-170</CheckBox>
 
                         <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">CURSO DE REDACCION</TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INTELIGENCIA ARTIFICIAL</TextBlock>
@@ -685,12 +685,12 @@
 
                         <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
                         <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
-                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon" Height="15.70"/>
-                        <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon" Height="15.65"/>
-                        <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon" Height="15.70"/>
-                        <Rectangle Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowADM900" Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowIID945" Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF344" Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon" Height="15.70"/>
+                        <Rectangle Name="RowINF345" Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon" Height="15.65"/>
+                        <Rectangle Name="RowINF433" Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon" Height="15.70"/>
+                        <Rectangle Name="RowINF920" Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon"/>
 
                         <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Decimo Cuatrimestre</TextBlock>
                         <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
@@ -698,12 +698,12 @@
                         <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
                         <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
 
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ADM-900</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-945</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-344</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-345</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-433</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-920</CheckBox>
+                        <CheckBox Name="ADM900" IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ADM-900</CheckBox>
+                        <CheckBox Name="IID945" IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-945</CheckBox>
+                        <CheckBox Name="INF344" IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-344</CheckBox>
+                        <CheckBox Name="INF345" IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-345</CheckBox>
+                        <CheckBox Name="INF433" IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-433</CheckBox>
+                        <CheckBox Name="INF920" IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-920</CheckBox>
 
                         <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">FORMACION DE EMPRENDEDORES</TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INGENIERIA ECONOMICA</TextBlock>
@@ -747,11 +747,11 @@
 
                         <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
                         <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
-                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="LightGreen"/>
+                        <Rectangle Name="RowDPG010" Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowIID025" Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF025" Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF820" Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowSOC160" Grid.Row="6" Grid.ColumnSpan="4" Fill="LightGreen"/>
 
                         <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Decimo Primer Cuatrimestre</TextBlock>
                         <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
@@ -759,11 +759,11 @@
                         <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
                         <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
 
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">DPG-010</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-025</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-025</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-820</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-160</CheckBox>
+                        <CheckBox Name="DPG010" IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">DPG-010</CheckBox>
+                        <CheckBox Name="IID025" IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IID-025</CheckBox>
+                        <CheckBox Name="INF025" IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-025</CheckBox>
+                        <CheckBox Name="INF820" IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-820</CheckBox>
+                        <CheckBox Name="SOC160" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-160</CheckBox>
 
                         <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ANTEPROYECTO DE GRADO</TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">DISEÑO Y EVALUACIÓN DE PROYECTOS</TextBlock>
@@ -798,7 +798,7 @@
 
                         <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
                         <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
-                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF008" Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
 
                         <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Decimo Segundo Cuatrimestre</TextBlock>
                         <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
@@ -806,7 +806,7 @@
                         <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
                         <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
 
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">INF-008</CheckBox>
+                        <CheckBox Name="INF008" IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">INF-008</CheckBox>
 
                         <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">PROYECTO DE GRADO</TextBlock>
 
@@ -835,13 +835,13 @@
                         </Grid.RowDefinitions>
                         <Rectangle Grid.Row="0" Grid.ColumnSpan="4" Fill="DarkGray"/>
                         <Rectangle Grid.Row="1" Grid.ColumnSpan="4" Fill="DarkGray"/>
-                        <Rectangle Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon" Height="12"/>
-                        <Rectangle Grid.Row="8" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowIEL200" Grid.Row="2" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowIEL205" Grid.Row="3" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF022" Grid.Row="4" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF023" Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF024" Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowINF026" Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        
 
                         <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Materias Electivas</TextBlock>
                         <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
@@ -849,12 +849,12 @@
                         <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
                         <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
 
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-200</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-205</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-022</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-023</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-024</CheckBox>
-                        <CheckBox IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-026</CheckBox>
+                        <CheckBox Name="IEL200" IsEnabled="False" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-200</CheckBox>
+                        <CheckBox Name="IEL205" IsEnabled="False" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">IEL-205</CheckBox>
+                        <CheckBox Name="INF022" IsEnabled="False" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center">INF-022</CheckBox>
+                        <CheckBox Name="INF023" IsEnabled="False" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">INF-023</CheckBox>
+                        <CheckBox Name="INF024" IsEnabled="False" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">INF-024</CheckBox>
+                        <CheckBox Name="INF026" IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">INF-026</CheckBox>
 
                         <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">CIRCUITOS ELECT. I</TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">TALLER DE CIRCUITOS ELECTRICOS I</TextBlock>
