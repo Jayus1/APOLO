@@ -124,7 +124,7 @@
                         <CheckBox Name="MAT170" IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-170</CheckBox>
                         <CheckBox Name="MAT190" IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-190</CheckBox>
                         <CheckBox Name="MAT191" IsEnabled="False" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-191</CheckBox>
-                        <CheckBox Name="SOC150" IsEnabled="False" Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-150</CheckBox>
+                        <CheckBox Name="SOC150" Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">SOC-150</CheckBox>
 
                         <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">LENGUA ESPAÑOLA I</TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">PROGRAMACION I</TextBlock>
@@ -204,8 +204,8 @@
                         <CheckBox Name="MAT340" IsEnabled="False" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-340</CheckBox>
                         <CheckBox Name="MAT500" IsEnabled="False" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-500</CheckBox>
                         <CheckBox Name="MAT501" IsEnabled="False" Grid.Column="0" Grid.Row="9" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-501</CheckBox>
-                        <CheckBox Name="MED750" IsEnabled="False" Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">MED-750</CheckBox>
-                        <CheckBox Name="MED755" IsEnabled="False" Grid.Column="0" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center">MED-755</CheckBox>
+                        <CheckBox Name="MED750" Grid.Column="0" Grid.Row="10" HorizontalAlignment="Center" VerticalAlignment="Center">MED-750</CheckBox>
+                        <CheckBox Name="MED755" Grid.Column="0" Grid.Row="11" HorizontalAlignment="Center" VerticalAlignment="Center">MED-755</CheckBox>
 
                         <TextBlock Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">LENGUA ESPAÑOLA II</TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">ANALISIS DE SISTEMAS</TextBlock>
