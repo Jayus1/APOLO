@@ -50,7 +50,7 @@
                         <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
                         <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
 
-                        <CheckBox Name="ESP095" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="ESP095_Checked" Unchecked="ESP095_Unchecked" IsChecked="{Con Binding ClassESP09.Status, Mode=OneWayToSource}">ESP-095</CheckBox>
+                        <CheckBox Name="ESP095" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="ESP095_Checked" Unchecked="ESP095_Unchecked" >ESP-095</CheckBox>
                         <CheckBox Name="INF117" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="INF117_Checked" Unchecked="INF117_Unchecked">INF-117</CheckBox>
                         <CheckBox Name="ING105" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" >ING-105</CheckBox>
                         <CheckBox Name="MAT115" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-115</CheckBox>
