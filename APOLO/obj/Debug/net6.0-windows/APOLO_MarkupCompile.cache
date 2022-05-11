@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\julio\Source\Repos\Jayus1\APOLO\APOLO\obj\Debug\net6.0-windows\
-APOLO_eae5p0jy_wpftmp
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net6.0-windows\
+APOLO
 none
 false
-TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\Users\julio\Source\Repos\Jayus1\APOLO\APOLO\App.xaml
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\App.xaml
 11407045341
 
-6-164199399
-388392481208
+4-1244281973
+194-1951243044
 MainWindow.xaml;
 
-True
+False
 
