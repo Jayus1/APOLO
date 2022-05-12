@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Julio Sierra\\source\\repos\\APOLO\\APOLO\\APOLO.csproj": {}
+    "C:\\Users\\julio\\source\\repos\\Jayus1\\APOLO\\APOLO\\APOLO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Julio Sierra\\source\\repos\\APOLO\\APOLO\\APOLO.csproj": {
+    "C:\\Users\\julio\\source\\repos\\Jayus1\\APOLO\\APOLO\\APOLO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Julio Sierra\\source\\repos\\APOLO\\APOLO\\APOLO.csproj",
+        "projectUniqueName": "C:\\Users\\julio\\source\\repos\\Jayus1\\APOLO\\APOLO\\APOLO.csproj",
         "projectName": "APOLO",
-        "projectPath": "C:\\Users\\Julio Sierra\\source\\repos\\APOLO\\APOLO\\APOLO.csproj",
-        "packagesPath": "C:\\Users\\Julio Sierra\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Julio Sierra\\source\\repos\\APOLO\\APOLO\\obj\\",
+        "projectPath": "C:\\Users\\julio\\source\\repos\\Jayus1\\APOLO\\APOLO\\APOLO.csproj",
+        "packagesPath": "C:\\Users\\julio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\julio\\source\\repos\\Jayus1\\APOLO\\APOLO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Julio Sierra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\julio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

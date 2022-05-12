@@ -188,8 +188,8 @@
                         <Rectangle Name="RowMAT340" Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon"/>
                         <Rectangle Name="RowMAT500" Grid.Row="8" Grid.ColumnSpan="4" Fill="Salmon"/>
                         <Rectangle Name="RowMAT501" Grid.Row="9" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Name="RowMED750" Grid.Row="10" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        <Rectangle Name="RowMED755" Grid.Row="11" Grid.ColumnSpan="4" Fill="Salmon"/>
+                        <Rectangle Name="RowMED750" Grid.Row="10" Grid.ColumnSpan="4" Fill="LightGreen"/>
+                        <Rectangle Name="RowMED755" Grid.Row="11" Grid.ColumnSpan="4" Fill="LightGreen"/>
                         <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Tercer Cuatrimestre</TextBlock>
                         <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
