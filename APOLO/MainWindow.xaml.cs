@@ -14,26 +14,77 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
 
 namespace APOLO
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : INotifyPropertyChanged
     {
         public MainWindow()
         {
+            DataContext = this;
             InitializeComponent();
-
+            
             Thread update = new Thread(UpdateThread);
             update.IsBackground = true;
             update.Start();
             
            
         }
-        
-       
+
+        private string available="19";
+        private string noAvailable = "72";
+        private string take = "0";
+
+        public string Available { get => available; set { available = value; OnPropertyChanged("Available"); }  }
+        public string NoAvailable { get => noAvailable; set => noAvailable = value; }
+        public string Take { get => take; set => take = value; }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void OnPropertyChanged(string property)  //[CallerMemberName] string property=null)
+        {
+            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+
+        public void GreenUp()
+        {
+            int pass= Convert.ToInt32(Available);
+            Available = Convert.ToString(pass+1);
+        }
+        public void GreenDown()
+        {
+            int pass = Convert.ToInt32(Available);
+            Available = Convert.ToString(pass - 1);
+        }
+        public void RedUp()
+        {
+            int pass = Convert.ToInt32(Available);
+            NoAvailable = Convert.ToString(pass + 1);
+        }
+        public void RedDown()
+        {
+            int pass = Convert.ToInt32(Available);
+            NoAvailable = Convert.ToString(pass - 1);
+        }
+        public void BlueUp()
+        {
+            int pass = Convert.ToInt32(Available);
+            Take = Convert.ToString(pass + 1);
+        }
+        public void BlueDown()
+        {
+            int pass = Convert.ToInt32(Available);
+            Take = Convert.ToString(pass - 1);
+        }
 
         private void ESP095_Checked(object sender, RoutedEventArgs e)
         {
@@ -87,6 +138,7 @@ namespace APOLO
                 RowESP095.Fill = new SolidColorBrush(Colors.LightBlue);
                 ESP181.IsEnabled = true;
                 RowESP181.Fill = new SolidColorBrush(Colors.LightGreen);
+                
             }
             else
             {
@@ -855,6 +907,10 @@ namespace APOLO
             {
                 RowINF241.Fill = new SolidColorBrush(Colors.LightBlue);
             }
+            if (Convert.ToBoolean(INF810.IsChecked))
+            {
+                RowINF810.Fill = new SolidColorBrush(Colors.LightBlue);
+            }
             //INF-840
             if (Convert.ToBoolean(INF535.IsChecked) && Convert.ToBoolean(INF700.IsChecked))
             {
@@ -991,7 +1047,7 @@ namespace APOLO
                 RowADM900.Fill = new SolidColorBrush(Colors.Salmon);
 
             }
-            if (Convert.ToBoolean(INF225.IsChecked))
+            if (Convert.ToBoolean(ADM900.IsChecked))
             {
                 RowADM900.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -1000,7 +1056,6 @@ namespace APOLO
             {
                 IID945.IsEnabled = true;
                 RowIID945.Fill = new SolidColorBrush(Colors.LightGreen);
-
             }
             else
             {
@@ -1087,6 +1142,83 @@ namespace APOLO
             if(Convert.ToBoolean(DPG010.IsChecked))
             {
                 RowDPG010.Fill = new SolidColorBrush(Colors.LightBlue);
+            }
+            //IID-025
+            if (Convert.ToBoolean(IID945.IsChecked))
+            {
+                IID025.IsEnabled = true;
+                RowIID025.Fill = new SolidColorBrush(Colors.LightGreen);
+            }
+            else
+            {
+                IID025.IsEnabled = false;
+                IID025.IsChecked = false;
+                RowIID025.Fill = new SolidColorBrush(Colors.Salmon);
+            }
+            if(Convert.ToBoolean(IID025.IsChecked))
+            {
+                RowIID025.Fill = new SolidColorBrush(Colors.LightBlue);
+            }
+            //INF-025
+            if (Convert.ToBoolean(INF705.IsChecked) && Convert.ToBoolean(INF706.IsChecked))
+            {
+                INF025.IsEnabled = true;
+                RowINF025.Fill=new SolidColorBrush(Colors.LightGreen);
+            }
+            else 
+            {
+                INF025.IsEnabled = false;
+                INF025.IsChecked = false;
+                RowINF025.Fill = new SolidColorBrush(Colors.Salmon);
+            }
+            if (Convert.ToBoolean(INF025.IsChecked))
+            {
+                RowINF025.Fill=new SolidColorBrush(Colors.LightBlue);
+            }
+            //INF-820
+            if (Convert.ToBoolean(INF344.IsChecked) && Convert.ToBoolean(INF345.IsChecked))
+            {
+                INF820.IsEnabled = true;
+                RowINF820.Fill = new SolidColorBrush(Colors.LightGreen);
+            }
+            else
+            {
+                INF820.IsEnabled = false;
+                RowINF820.Fill = new SolidColorBrush(Colors.Salmon);
+            }
+            if (Convert.ToBoolean(INF820.IsChecked))
+            {
+                RowINF820.Fill = new SolidColorBrush(Colors.LightBlue);
+            }
+            //SOC-170
+            if (Convert.ToBoolean(SOC160.IsChecked))
+            {
+                RowSOC160.Fill = new SolidColorBrush(Colors.LightBlue);
+            }
+            else
+            {
+                RowSOC160.Fill = new SolidColorBrush(Colors.LightGreen);
+            }
+
+
+            //DECIMO SEGUNDO CUATRIMESTRE
+            //INF-008
+            if(Convert.ToBoolean(ADM900.IsChecked) && Convert.ToBoolean(IID945.IsChecked) && Convert.ToBoolean(INF344.IsChecked) && Convert.ToBoolean(INF345.IsChecked) && Convert.ToBoolean(INF433.IsChecked) && Convert.ToBoolean(INF920.IsChecked) && 
+                Convert.ToBoolean(DPG010.IsChecked) && Convert.ToBoolean(IID025.IsChecked) && Convert.ToBoolean(INF025.IsChecked) && Convert.ToBoolean(INF820.IsChecked) && Convert.ToBoolean(SOC160.IsChecked) && 
+                Convert.ToBoolean(IEL200.IsChecked) && Convert.ToBoolean(IEL205.IsChecked) && Convert.ToBoolean(INF022.IsChecked) && Convert.ToBoolean(INF023.IsChecked) && Convert.ToBoolean(INF024.IsChecked) && Convert.ToBoolean(INF026.IsChecked))
+            {
+                INF008.IsEnabled = true;
+                RowINF008.Fill = new SolidColorBrush(Colors.LightGreen);
+            }
+            else
+            {
+                INF008.IsEnabled = false;
+                RowINF008.Fill = new SolidColorBrush(Colors.Salmon);
+            }
+            if(Convert.ToBoolean(INF008.IsChecked))
+            {
+                RowINF008.Fill = new SolidColorBrush(Colors.LightBlue);
+               // MessageBox.Show("Felicidades, has terminado la carrera");
             }
 
             //MATERIAS ELECTIVAS

@@ -7,7 +7,33 @@
         mc:Ignorable="d"
         Title="APOLO" Height="450" Width="800">
   <DockPanel>
-    <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top" Background="Gray" Height="30" TextAlignment="Center" FontSize="15"> Materias Tomadas:  Materias Disponibles: Materias Disponibles:</TextBlock>
+    <Grid DockPanel.Dock="Top"  Background="Gray">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="17" HorizontalAlignment="Center" FontWeight="Bold" >APOLO</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias Tomadas:</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias Disponibles:</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="2" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias No Disponibles:</TextBlock>
+
+            <Rectangle Grid.Row="2" Grid.Column="0" Fill="LightBlue"/>
+            <Rectangle Grid.Row="2" Grid.Column="1" Fill="LightGreen"/>
+            <Rectangle Grid.Row="2" Grid.Column="2" Fill="Salmon"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=Take, Mode=TwoWay}"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="1" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=Available, Mode=TwoWay}"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="2" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=NoAvailable, Mode=TwoWay}"></TextBlock>
+
+        </Grid>
     <ScrollViewer HorizontalScrollBarVisibility="Auto">
             <Border Margin="5,0,5,0">
                 <StackPanel>
