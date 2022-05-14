@@ -14,44 +14,101 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Runtime.CompilerServices;
+using System.ComponentModel;
 
 namespace APOLO
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : INotifyPropertyChanged
     {
         public MainWindow()
         {
+            DataContext = this;
             InitializeComponent();
-            int available = 0;
-            int noAvailable = 0;
-            int take = 0;
+
             Thread update = new Thread(UpdateThread);
             update.IsBackground = true;
             update.Start();
-            
-           
         }
-        
-       
+
+        private string available="18";
+        private string noAvailable = "72";
+        private string take = "0";
+
+        public string Available { get => available; set { available = value; OnPropertyChanged("Available"); }  }
+        public string NoAvailable { get => noAvailable; set { noAvailable = value; OnPropertyChanged("NoAvailable"); } }
+        public string Take { get => take; set { take = value; OnPropertyChanged("Take"); } }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void OnPropertyChanged(string property)  //[CallerMemberName] string property=null)
+        {
+            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(property));
+            }
+        }
+        public void BlueUpRedDown(object sender, RoutedEventArgs e)
+        {
+            int pass = Convert.ToInt32(Take);
+            Take = Convert.ToString(pass + 1);
+            pass = Convert.ToInt32(Available);
+            NoAvailable = Convert.ToString(pass - 1);
+        }
+        public void BlueDownRedUp(object sender, RoutedEventArgs e)
+        {
+            int pass = Convert.ToInt32(Take);
+            Take = Convert.ToString(pass - 1);
+            pass = Convert.ToInt32(Available);
+            NoAvailable = Convert.ToString(pass + 1);
+        }
+
+        public void GreenUp()
+        {
+            int pass = Convert.ToInt32(Available);
+            Available = Convert.ToString(pass + 1);
+        }
+        public void GreenDown()
+        {
+            int pass = Convert.ToInt32(Available);
+            Available = Convert.ToString(pass - 1);
+        }
+        public void RedUp()
+        {
+            int pass = Convert.ToInt32(NoAvailable);
+            NoAvailable = Convert.ToString(pass + 1);
+        }
+        public void RedDown()
+        {
+            int pass = Convert.ToInt32(NoAvailable);
+            NoAvailable = Convert.ToString(pass - 1);
+        }
+        public void BlueUp()
+        {
+            int pass = Convert.ToInt32(Take);
+            Take = Convert.ToString(pass + 1);
+        }
+        public void BlueDown()
+        {
+            int pass = Convert.ToInt32(Take);
+            Take = Convert.ToString(pass - 1);
+        }
 
         private void ESP095_Checked(object sender, RoutedEventArgs e)
         {
-            //RowESP095.Fill = new SolidColorBrush(Colors.LightBlue);
-            //ESP181.IsEnabled = true;
-            //RowESP181.Fill= new SolidColorBrush(Colors.LightGreen);
-            //Update();
+            BlueUp();
+            RedDown();
 
         }
 
         private void ESP095_Unchecked(object sender, RoutedEventArgs e)
         {
-            //RowESP095.Fill = new SolidColorBrush(Colors.LightGreen);
-            //ESP181.IsEnabled = false;
-            //RowESP181.Fill = new SolidColorBrush(Colors.Salmon
-            //Update();
+            BlueDown();
+            RedUp();
         }
 
         private void INF117_Checked(object sender, RoutedEventArgs e)
@@ -78,7 +135,7 @@ namespace APOLO
                 
             }
         }
-
+  
         public void Update()
         {
            
@@ -89,6 +146,7 @@ namespace APOLO
                 RowESP095.Fill = new SolidColorBrush(Colors.LightBlue);
                 ESP181.IsEnabled = true;
                 RowESP181.Fill = new SolidColorBrush(Colors.LightGreen);
+                
             }
             else
             {
@@ -96,6 +154,7 @@ namespace APOLO
                 ESP181.IsEnabled = false;
                 ESP181.IsChecked = false;
                 RowESP181.Fill = new SolidColorBrush(Colors.Salmon);
+                
             }
             //INF-117
             if(Convert.ToBoolean(INF117.IsChecked))
