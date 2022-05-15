@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Runtime.CompilerServices;
 using System.Threading;
-using System.Runtime.CompilerServices;
 using System.ComponentModel;
 
 namespace APOLO
@@ -28,15 +27,14 @@ namespace APOLO
         {
             DataContext = this;
             InitializeComponent();
-
             Thread update = new Thread(UpdateThread);
             update.IsBackground = true;
             update.Start();
         }
 
-        private string available="18";
-        private string noAvailable = "72";
-        private string take = "0";
+        private string available; //="18";
+        private string noAvailable; // = "72";
+        private string take; // = "0";
 
         public string Available { get => available; set { available = value; OnPropertyChanged("Available"); }  }
         public string NoAvailable { get => noAvailable; set { noAvailable = value; OnPropertyChanged("NoAvailable"); } }
@@ -100,25 +98,17 @@ namespace APOLO
 
         private void ESP095_Checked(object sender, RoutedEventArgs e)
         {
-            BlueUp();
-            RedDown();
+            //BlueUp();
+            //RedDown();
+           //Count();
 
         }
 
         private void ESP095_Unchecked(object sender, RoutedEventArgs e)
         {
-            BlueDown();
-            RedUp();
-        }
-
-        private void INF117_Checked(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
-        private void INF117_Unchecked(object sender, RoutedEventArgs e)
-        {
-
+            //BlueDown();
+            //RedUp();
+            //Count();
         }
 
         public void UpdateThread()
@@ -130,6 +120,8 @@ namespace APOLO
                 this.Dispatcher.Invoke(() =>
                 {
                     Update();
+                    Count();
+                    
                 });
                 Thread.Sleep(100);
                 
@@ -1314,6 +1306,1213 @@ namespace APOLO
                 RowINF024.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             
+        }
+
+        public void Count()
+        {
+            Available = "0";
+            NoAvailable = "0";
+            Take = "0";
+
+            //PRIMER CUATRIMESTRE
+            //ESP-095
+            if (Convert.ToString(RowESP095.Fill)== "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if(Convert.ToString(RowESP095.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowESP095.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-117
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //ING-105
+            if (Convert.ToString(RowING105.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowING105.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowING105.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-115
+            if (Convert.ToString(RowMAT115.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMAT115.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMAT115.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-160
+            if (Convert.ToString(RowMAT160.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMAT160.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMAT160.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //ORI-112
+            if (Convert.ToString(RowORI112.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowORI112.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowORI112.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //SOC-116
+            if (Convert.ToString(RowSOC116.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowSOC116.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowSOC116.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //SOC-180
+            if (Convert.ToString(RowSOC180.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowSOC180.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowSOC180.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            //SEGUNDO CUATRIMESTRE
+            //ESP-181
+            if (Convert.ToString(RowESP181.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowESP181.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowESP181.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-164
+            if (Convert.ToString(RowINF164.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF164.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF164.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-165
+            if (Convert.ToString(RowINF165.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF165.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF165.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-204
+            if (Convert.ToString(RowINF204.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF204.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF204.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //ING-115
+            if (Convert.ToString(RowING115.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowING115.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowING115.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-170
+            if (Convert.ToString(RowMAT170.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMAT170.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMAT170.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-190
+            if (Convert.ToString(RowMAT190.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMAT190.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMAT190.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-191
+            if (Convert.ToString(RowMAT191.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMAT191.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMAT191.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //SOC-150
+            if (Convert.ToString(RowSOC150.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowSOC150.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowSOC150.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            //TERCER CUATRIMESTRE
+            //ESP-189
+            if (Convert.ToString(RowESP189.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowESP189.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowESP189.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-121
+            if (Convert.ToString(RowINF121.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF121.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF121.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-167
+            if (Convert.ToString(RowINF167.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF167.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF167.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-168
+            if (Convert.ToString(RowINF168.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF168.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF168.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //ING-125
+            if (Convert.ToString(RowING125.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowING125.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowING125.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-340
+            if (Convert.ToString(RowMAT340.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMAT340.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMAT340.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-500
+            if (Convert.ToString(RowMAT500.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMAT500.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMAT500.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-501
+            if (Convert.ToString(RowMAT501.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMAT501.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMAT501.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MED-750
+            if (Convert.ToString(RowMED750.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMED750.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMED750.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MED-755
+            if (Convert.ToString(RowMED755.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMED755.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMED755.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            
+
+            //CUARTO CUATRIMESTRE
+            //IEL-100
+            if (Convert.ToString(RowIEL100.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowIEL100.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowIEL100.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //IEL-105
+            if (Convert.ToString(RowIEL105.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowIEL105.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowIEL105.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-171
+            if (Convert.ToString(RowINF171.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF171.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF171.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-172
+            if (Convert.ToString(RowINF172.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF172.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF172.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-173
+            if (Convert.ToString(RowINF173.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF173.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF173.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-385
+            if (Convert.ToString(RowINF385.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF385.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF385.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-387
+            if (Convert.ToString(RowINF387.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF387.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF387.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //ING-165
+            if (Convert.ToString(RowING165.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowING165.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowING165.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-350
+            if (Convert.ToString(RowMAT350.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMAT350.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMAT350.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            //QUINTO CUATRIMESTRE
+            //DIB-520
+            if (Convert.ToString(RowDIB520.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowDIB520.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowDIB520.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //IID-420
+            if (Convert.ToString(RowIID420.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowIID420.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowIID420.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-440
+            if (Convert.ToString(RowINF440.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF440.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF440.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-445
+            if (Convert.ToString(RowINF445.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF445.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF445.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-481
+            if (Convert.ToString(RowINF481.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF481.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF481.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-482
+            if (Convert.ToString(RowINF482.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF482.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF482.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-535
+            if (Convert.ToString(RowINF535.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF535.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF535.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-360
+            if (Convert.ToString(RowMAT360.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMAT360.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMAT360.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //SOC-700
+            if (Convert.ToString(RowSOC700.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowSOC700.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowSOC700.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            //SEXTO CUATRIMESTRE
+            //INF-184
+            if (Convert.ToString(RowINF184.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF184.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF184.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-185
+            if (Convert.ToString(RowINF185.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF185.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF185.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-213
+            if (Convert.ToString(RowINF213.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF213.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF213.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-214
+            if (Convert.ToString(RowINF214.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF214.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF214.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-225
+            if (Convert.ToString(RowINF225.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF225.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF225.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-331
+            if (Convert.ToString(RowINF331.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF331.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF331.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-135
+            if (Convert.ToString(RowMAT135.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowMAT135.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowMAT135.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //SOC-140
+            if (Convert.ToString(RowSOC140.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowSOC140.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowSOC140.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            //SEPTIMO CUATRIMESTRE
+            //ESP-301
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-502
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-503
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-700
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-705
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-706
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //MAT-145
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //SOC-170
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            //OCTAVO CUATRIMESTRE
+            //IID-725	
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-241
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-810
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-840
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            //NOVENO CUATRIMESTRE
+            //ADM-910
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //IID-830
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-021
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-411
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-412
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-450
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-910
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            //DECIMO CUATRIMESTRE
+            //ADM-900
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //IID-945
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-344
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-345
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-433
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-920
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            //DECIMO PRIMER CUATRIMESTRE
+            //DPG-010
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //IID-025
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-025
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-820
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //SOC-160
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            //DECIMO SEGUNDO CUATRIMESTRE
+            //INF-008
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+            //MATERIA ELECTIVA
+            //IEL-200
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //IEL-205
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-022
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-023
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-024
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+            //INF-026
+            if (Convert.ToString(RowINF117.Fill) == "#FF90EE90")
+            {
+                GreenUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFADD8E6")
+            {
+                BlueUp();
+            }
+            else if (Convert.ToString(RowINF117.Fill) == "#FFFA8072")
+            {
+                RedUp();
+            }
+
+
         }
     }
 }
