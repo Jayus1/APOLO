@@ -96,35 +96,27 @@ namespace APOLO
             Take = Convert.ToString(pass - 1);
         }
 
-        private void ESP095_Checked(object sender, RoutedEventArgs e)
-        {
-            //BlueUp();
-            //RedDown();
-           //Count();
-
-        }
-
-        private void ESP095_Unchecked(object sender, RoutedEventArgs e)
-        {
-            //BlueDown();
-            //RedUp();
-            //Count();
-        }
-
         public void UpdateThread()
         {
             bool salida = true;
 
-            while (salida)
+            try
             {
-                this.Dispatcher.Invoke(() =>
+                while (salida)
                 {
-                    Update();
-                    Count();
-                    
-                });
-                Thread.Sleep(100);
-                
+                    this.Dispatcher.Invoke(() =>
+                    {
+                        Update();
+                        Count();
+
+                    });
+                    Thread.Sleep(100);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Thread.Sleep(0);
             }
         }
   
