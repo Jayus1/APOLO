@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APOLO"
-        mc:Ignorable="d"
-        Title="APOLO" Height="450" Width="800">
-  <DockPanel>
-    <Grid DockPanel.Dock="Top"  Background="Gray">
+        mc:Ignorable="d" Closing="Window_Closing" WindowStartupLocation="CenterScreen" 
+        Title="APOLO" MinHeight="290" MinWidth="530" Height="460" Width="810">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top"  Background="Gray">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -20,7 +20,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" FontSize="17" HorizontalAlignment="Center" FontWeight="Bold" >APOLO</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="17" HorizontalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="3">APOLO</TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias Tomadas:</TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias Disponibles:</TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="2" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias No Disponibles:</TextBlock>
@@ -29,12 +29,12 @@
             <Rectangle Grid.Row="2" Grid.Column="1" Fill="LightGreen"/>
             <Rectangle Grid.Row="2" Grid.Column="2" Fill="Salmon"/>
 
-            <TextBlock Grid.Row="2" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=Take, Mode=TwoWay}"></TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="1" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=Available, Mode=TwoWay}"></TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="2" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=NoAvailable, Mode=TwoWay}"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=Take, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=Available, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=NoAvailable, Mode=TwoWay}"/>
 
         </Grid>
-    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
             <Border Margin="5,0,5,0">
                 <StackPanel>
                     <Grid Background="Black">
@@ -69,15 +69,15 @@
                         <Rectangle Name="RowORI112" Grid.Row="7" Grid.ColumnSpan="4" Fill="LightGreen"/>
                         <Rectangle Name="RowSOC116" Grid.Row="8" Grid.ColumnSpan="4" Fill="LightGreen"/>
                         <Rectangle Name="RowSOC180" Grid.Row="9" Grid.ColumnSpan="4" Fill="LightGreen"/>
-                        
+
                         <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Primer Cuatrimestre</TextBlock>
                         <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
                         <TextBlock Grid.Column="1" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Nombre</TextBlock>
                         <TextBlock Grid.Column="2" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Creditos</TextBlock>
                         <TextBlock Grid.Column="3" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Requisitos</TextBlock>
 
-                        <CheckBox Name="ESP095" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="ESP095_Checked" Unchecked="ESP095_Unchecked" >ESP-095</CheckBox>
-                        <CheckBox Name="INF117" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="INF117_Checked" Unchecked="INF117_Unchecked">INF-117</CheckBox>
+                        <CheckBox Name="ESP095" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center">ESP-095</CheckBox>
+                        <CheckBox Name="INF117" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center">INF-117</CheckBox>
                         <CheckBox Name="ING105" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" >ING-105</CheckBox>
                         <CheckBox Name="MAT115" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-115</CheckBox>
                         <CheckBox Name="MAT160" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center">MAT-160</CheckBox>
@@ -867,7 +867,7 @@
                         <Rectangle Name="RowINF023" Grid.Row="5" Grid.ColumnSpan="4" Fill="Salmon"/>
                         <Rectangle Name="RowINF024" Grid.Row="6" Grid.ColumnSpan="4" Fill="Salmon"/>
                         <Rectangle Name="RowINF026" Grid.Row="7" Grid.ColumnSpan="4" Fill="Salmon"/>
-                        
+
 
                         <TextBlock FontSize="15" FontWeight="Bold" Grid.Row="0" Grid.ColumnSpan="4" HorizontalAlignment="Center">Materias Electivas</TextBlock>
                         <TextBlock Grid.Column="0" Grid.Row="1" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center">Seccion</TextBlock>
@@ -906,5 +906,5 @@
                 </StackPanel>
             </Border>
         </ScrollViewer>
-  </DockPanel>
+    </DockPanel>
 </Window>
