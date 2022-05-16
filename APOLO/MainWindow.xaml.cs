@@ -2514,5 +2514,10 @@ namespace APOLO
 
 
         }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            Thread.Sleep(0);
+        }
     }
 }
