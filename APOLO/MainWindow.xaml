@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APOLO"
         mc:Ignorable="d" Closing="Window_Closing" WindowStartupLocation="CenterScreen" 
-        Title="APOLO" MinHeight="280" MinWidth="530" Height="450" Width="810">
+        Title="APOLO" MinHeight="290" MinWidth="530" Height="460" Width="810">
     <DockPanel>
         <Grid DockPanel.Dock="Top"  Background="Gray">
             <Grid.RowDefinitions>
