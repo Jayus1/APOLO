@@ -2493,7 +2493,31 @@ namespace APOLO
                 using (JsonDocument document = JsonDocument.Parse(File.ReadAllText("path")))
                 {
                     JsonElement root= document.RootElement;
-                    JsonElement P
+                    JsonElement primer = root.GetProperty("Primer");
+                    JsonElement segundo = root.GetProperty("Segundo");
+                    JsonElement tercer = root.GetProperty("Tercero");
+                    JsonElement cuarto = root.GetProperty("Cuarto");
+                    JsonElement quinto = root.GetProperty("Quinto");
+                    JsonElement sexto = root.GetProperty("Sexto");
+                    JsonElement septimo = root.GetProperty("Septimo");
+                    JsonElement octavo = root.GetProperty("Octavo");
+                    JsonElement novena = root.GetProperty("Novena");
+                    JsonElement decimo = root.GetProperty("Decimo");
+                    JsonElement decimo_Primer = root.GetProperty("Decimo Primer");
+                    JsonElement decimo_Segundo = root.GetProperty("Decimo Segundo");
+                    JsonElement electivas = root.GetProperty("Electivas");
+
+                    foreach (JsonElement checkbox in primer.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "ESP-095")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "false")
+                            {
+                                ESP095.IsChecked = true;
+                            }
+                        } 
+                    }
+
                 }
             }
             else
