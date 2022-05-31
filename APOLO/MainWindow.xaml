@@ -8,7 +8,7 @@
         Title="APOLO" MinHeight="290" MinWidth="530" Height="460" Width="810">
     <DockPanel>
         <Grid DockPanel.Dock="Top"  Background="Gray">
-            <Grid.RowDefinitions>
+            <Grid.RowDefinitions> 
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
