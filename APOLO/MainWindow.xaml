@@ -8,31 +8,30 @@
         Title="APOLO" MinHeight="290" MinWidth="530" Height="460" Width="810">
     <DockPanel>
         <Grid DockPanel.Dock="Top"  Background="Gray">
-            <Grid.RowDefinitions>
+            <Grid.RowDefinitions> 
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="267*"/>
-                <ColumnDefinition Width="267*"/>
-                <ColumnDefinition Width="208*"/>
-                <ColumnDefinition Width="59*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Row="0" Grid.Column="1" FontSize="17" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,20" Grid.RowSpan="2" >APOLO</TextBlock>
-            <TextBlock FontSize="15" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,21,0,20" Grid.RowSpan="3">Materias Tomadas:</TextBlock>
-            <TextBlock Grid.Column="1" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,21,0,20" Grid.RowSpan="3">Materias Disponibles:</TextBlock>
-            <TextBlock Grid.Column="2" FontSize="15" HorizontalAlignment="Left" FontWeight="Bold" Margin="45,21,0,20" Grid.RowSpan="3" Grid.ColumnSpan="2">Materias No Disponibles:</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="17" HorizontalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="3">APOLO</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias Tomadas:</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias Disponibles:</TextBlock>
+            <TextBlock Grid.Row="1" Grid.Column="2" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias No Disponibles:</TextBlock>
 
-            <Rectangle Grid.Row="2" Grid.Column="0" Fill="LightBlue" Grid.ColumnSpan="2" Margin="0,0,266,0"/>
+            <Rectangle Grid.Row="2" Grid.Column="0" Fill="LightBlue"/>
             <Rectangle Grid.Row="2" Grid.Column="1" Fill="LightGreen"/>
-            <Rectangle Grid.Row="2" Grid.Column="1" Fill="Salmon" Grid.ColumnSpan="3" Margin="266,0,0,0"/>
+            <Rectangle Grid.Row="2" Grid.Column="2" Fill="Salmon"/>
 
-            <TextBlock Grid.Row="2" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=Take, Mode=TwoWay}"/>
-            <TextBlock Grid.Row="2" Grid.Column="1" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=Available, Mode=TwoWay}"></TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="2" FontSize="15" HorizontalAlignment="Left" Text="{Binding Path=NoAvailable, Mode=TwoWay}" Margin="134,0,0,0"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=Take, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=Available, Mode=TwoWay}"/>
+            <TextBlock Grid.Row="2" Grid.Column="2" FontSize="15" HorizontalAlignment="Center" Text="{Binding Path=NoAvailable, Mode=TwoWay}"/>
 
         </Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Auto">
