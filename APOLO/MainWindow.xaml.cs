@@ -30,7 +30,7 @@ namespace APOLO
         {
             DataContext = this;
             InitializeComponent();
-            Exist(Path);
+            Exist(Path, jsonString);
             Thread update = new Thread(UpdateThread);
             update.IsBackground = true;
             update.Start();
@@ -40,6 +40,20 @@ namespace APOLO
         private string noAvailable; // = "72";
         private string take; // = "0";
         public string Path { get => @"C:\Windows\Temp\ApoloData.json"; }
+        private string jsonString = "{" +
+                "\"Primer\":[{\"name\":\"ESP-095\",\"status\":\"false\"},{\"name\":\"INF-117\",\"status\":\"false\"},{\"name\":\"ING-105\",\"status\":\"false\"},{\"name\":\"MAT-115\",\"status\":\"false\"},{\"name\":\"MAT-160\",\"status\":\"false\"},{\"name\":\"ORI-112\",\"status\":\"false\"},{\"name\":\"SOC-116\",\"status\":\"false\"},{\"name\":\"SOC-180\",\"status\":\"false\"}]," +
+                "\"Segundo\":[{\"name\":\"ESP-181\",\"status\":\"false\"},{\"name\":\"INF-164\",\"status\":\"false\"},{\"name\":\"INF-165\",\"status\":\"false\"},{\"name\":\"INF-204\",\"status\":\"false\"},{\"name\":\"ING-115\",\"status\":\"false\"},{\"name\":\"MAT-170\",\"status\":\"false\"},{\"name\":\"MAT-190\",\"status\":\"false\"},{\"name\":\"MAT-191\",\"status\":\"false\"},{\"name\":\"SOC-150\",\"status\":\"false\"}]," +
+                "\"Tercero\":[{\"name\":\"ESP-189\",\"status\":\"false\"},{\"name\":\"INF-121\",\"status\":\"false\"},{\"name\":\"INF-167\",\"status\":\"false\"},{\"name\":\"INF-168\",\"status\":\"false\"},{\"name\":\"ING-125\",\"status\":\"false\"},{\"name\":\"MAT-340\",\"status\":\"false\"},{\"name\":\"MAT-500\",\"status\":\"false\"},{\"name\":\"MAT-501\",\"status\":\"false\"},{\"name\":\"MED-750\",\"status\":\"false\"},{\"name\":\"MED-755\",\"status\":\"false\"}]," +
+                "\"Cuarto\":[{\"name\":\"IEL-100\",\"status\":\"false\"},{\"name\":\"IEL-105\",\"status\":\"false\"},{\"name\":\"INF-171\",\"status\":\"false\"},{\"name\":\"INF-172\",\"status\":\"false\"},{\"name\":\"INF-173\",\"status\":\"false\"},{\"name\":\"INF-385\",\"status\":\"false\"},{\"name\":\"INF-387\",\"status\":\"false\"},{\"name\":\"ING-165\",\"status\":\"false\"},{\"name\":\"MAT-350\",\"status\":\"false\"}],\"Quinto\":[{\"name\":\"DIB-520\",\"status\":\"false\"},{\"name\":\"IID-420\",\"status\":\"false\"},{\"name\":\"INF-440\",\"status\":\"false\"},{\"name\":\"INF-445\",\"status\":\"false\"},{\"name\":\"INF-481\",\"status\":\"false\"},{\"name\":\"INF-482\",\"status\":\"false\"},{\"name\":\"INF-535\",\"status\":\"false\"},{\"name\":\"MAT-360\",\"status\":\"false\"},{\"name\":\"SOC-700\",\"status\":\"false\"}]," +
+                "\"Sexto\":[{\"name\":\"INF-184\",\"status\":\"false\"},{\"name\":\"INF-185\",\"status\":\"false\"},{\"name\":\"INF-213\",\"status\":\"false\"},{\"name\":\"INF-214\",\"status\":\"false\"},{\"name\":\"INF-225\",\"status\":\"false\"},{\"name\":\"INF-331\",\"status\":\"false\"},{\"name\":\"MAT-135\",\"status\":\"false\"},{\"name\":\"SOC-140\",\"status\":\"false\"}]," +
+                "\"Septimo\":[{\"name\":\"ESP-301\",\"status\":\"false\"},{\"name\":\"INF-502\",\"status\":\"false\"},{\"name\":\"INF-503\",\"status\":\"false\"},{\"name\":\"INF-700\",\"status\":\"false\"},{\"name\":\"INF-705\",\"status\":\"false\"},{\"name\":\"INF-706\",\"status\":\"false\"},{\"name\":\"MAT-145\",\"status\":\"false\"},{\"name\":\"SOC-170\",\"status\":\"false\"}]," +
+                "\"Octavo\":[{\"name\":\"IID-725\",\"status\":\"false\"},{\"name\":\"INF-241\",\"status\":\"false\"},{\"name\":\"INF-810\",\"status\":\"false\"},{\"name\":\"INF-840\",\"status\":\"false\"}]," +
+                "\"Novena\":[{\"name\":\"ADM-910\",\"status\":\"false\"},{\"name\":\"IID-830\",\"status\":\"false\"},{\"name\":\"INF-021\",\"status\":\"false\"},{\"name\":\"INF-411\",\"status\":\"false\"},{\"name\":\"INF-412\",\"status\":\"false\"},{\"name\":\"INF-450\",\"status\":\"false\"},{\"name\":\"INF-910\",\"status\":\"false\"}]," +
+                "\"Decimo\":[{\"name\":\"ADM-900\",\"status\":\"false\"},{\"name\":\"IID-945\",\"status\":\"false\"},{\"name\":\"INF-344\",\"status\":\"false\"},{\"name\":\"INF-345\",\"status\":\"false\"},{\"name\":\"INF-433\",\"status\":\"false\"},{\"name\":\"INF-920\",\"status\":\"false\"}]," +
+                "\"DecimoPrimer\":[{\"name\":\"DPG-010\",\"status\":\"false\"},{\"name\":\"IID-025\",\"status\":\"false\"},{\"name\":\"INF-025\",\"status\":\"false\"},{\"name\":\"INF-820\",\"status\":\"false\"},{\"name\":\"SOC-160\",\"status\":\"false\"}]," +
+                "\"DecimoSegundo\":[{\"name\":\"INF-008\",\"status\":\"false\"}]," +
+                "\"Electivas\":[{\"name\":\"IEL-200\",\"status\":\"false\"},{\"name\":\"IEL-205\",\"status\":\"false\"},{\"name\":\"INF-022\",\"status\":\"false\"},{\"name\":\"INF-023\",\"status\":\"false\"},{\"name\":\"INF-024\",\"status\":\"false\"},{\"name\":\"INF-026\",\"status\":\"false\"}]}";
+
 
         public string Available { get => available; set { available = value; OnPropertyChanged("Available"); }  }
         public string NoAvailable { get => noAvailable; set { noAvailable = value; OnPropertyChanged("NoAvailable"); } }
@@ -56,7 +70,7 @@ namespace APOLO
             }
         }
 
- #region 'Contadores'
+ #region Contadores
         public void Count()
         {
             Available = "0";
@@ -2485,21 +2499,9 @@ namespace APOLO
             
         }
 
-        public void Exist(string path)
+        #region Json
+        public void Exist(string path, string jsonString)
         {
-            string jsonString = "{" +
-                "\"Primer\":[{\"name\":\"ESP-095\",\"status\":\"false\"},{\"name\":\"INF-117\",\"status\":\"false\"},{\"name\":\"ING-105\",\"status\":\"false\"},{\"name\":\"MAT-115\",\"status\":\"false\"},{\"name\":\"MAT-160\",\"status\":\"false\"},{\"name\":\"ORI-112\",\"status\":\"false\"},{\"name\":\"SOC-116\",\"status\":\"false\"},{\"name\":\"SOC-180\",\"status\":\"false\"}]," +
-                "\"Segundo\":[{\"name\":\"ESP-181\",\"status\":\"false\"},{\"name\":\"INF-164\",\"status\":\"false\"},{\"name\":\"INF-165\",\"status\":\"false\"},{\"name\":\"INF-204\",\"status\":\"false\"},{\"name\":\"ING-115\",\"status\":\"false\"},{\"name\":\"MAT-170\",\"status\":\"false\"},{\"name\":\"MAT-190\",\"status\":\"false\"},{\"name\":\"MAT-191\",\"status\":\"false\"},{\"name\":\"SOC-150\",\"status\":\"false\"}]," +
-                "\"Tercero\":[{\"name\":\"ESP-189\",\"status\":\"false\"},{\"name\":\"INF-121\",\"status\":\"false\"},{\"name\":\"INF-167\",\"status\":\"false\"},{\"name\":\"INF-168\",\"status\":\"false\"},{\"name\":\"ING-125\",\"status\":\"false\"},{\"name\":\"MAT-340\",\"status\":\"false\"},{\"name\":\"MAT-500\",\"status\":\"false\"},{\"name\":\"MAT-501\",\"status\":\"false\"},{\"name\":\"MED-750\",\"status\":\"false\"},{\"name\":\"MED-755\",\"status\":\"false\"}]," +
-                "\"Cuarto\":[{\"name\":\"IEL-100\",\"status\":\"false\"},{\"name\":\"IEL-105\",\"status\":\"false\"},{\"name\":\"INF-171\",\"status\":\"false\"},{\"name\":\"INF-172\",\"status\":\"false\"},{\"name\":\"INF-173\",\"status\":\"false\"},{\"name\":\"INF-385\",\"status\":\"false\"},{\"name\":\"INF-387\",\"status\":\"false\"},{\"name\":\"ING-165\",\"status\":\"false\"},{\"name\":\"MAT-350\",\"status\":\"false\"}],\"Quinto\":[{\"name\":\"DIB-520\",\"status\":\"false\"},{\"name\":\"IID-420\",\"status\":\"false\"},{\"name\":\"INF-440\",\"status\":\"false\"},{\"name\":\"INF-445\",\"status\":\"false\"},{\"name\":\"INF-481\",\"status\":\"false\"},{\"name\":\"INF-482\",\"status\":\"false\"},{\"name\":\"INF-535\",\"status\":\"false\"},{\"name\":\"MAT-360\",\"status\":\"false\"},{\"name\":\"SOC-700\",\"status\":\"false\"}]," +
-                "\"Sexto\":[{\"name\":\"INF-184\",\"status\":\"false\"},{\"name\":\"INF-185\",\"status\":\"false\"},{\"name\":\"INF-213\",\"status\":\"false\"},{\"name\":\"INF-214\",\"status\":\"false\"},{\"name\":\"INF-225\",\"status\":\"false\"},{\"name\":\"INF-331\",\"status\":\"false\"},{\"name\":\"MAT-135\",\"status\":\"false\"},{\"name\":\"SOC-140\",\"status\":\"false\"}]," +
-                "\"Septimo\":[{\"name\":\"ESP-301\",\"status\":\"false\"},{\"name\":\"INF-502\",\"status\":\"false\"},{\"name\":\"INF-503\",\"status\":\"false\"},{\"name\":\"INF-700\",\"status\":\"false\"},{\"name\":\"INF-705\",\"status\":\"false\"},{\"name\":\"INF-706\",\"status\":\"false\"},{\"name\":\"MAT-145\",\"status\":\"false\"},{\"name\":\"SOC-170\",\"status\":\"false\"}]," +
-                "\"Octavo\":[{\"name\":\"IID-725\",\"status\":\"false\"},{\"name\":\"INF-241\",\"status\":\"false\"},{\"name\":\"INF-810\",\"status\":\"false\"},{\"name\":\"INF-840\",\"status\":\"false\"}]," +
-                "\"Novena\":[{\"name\":\"ADM-910\",\"status\":\"false\"},{\"name\":\"IID-830\",\"status\":\"false\"},{\"name\":\"INF-021\",\"status\":\"false\"},{\"name\":\"INF-411\",\"status\":\"false\"},{\"name\":\"INF-412\",\"status\":\"false\"},{\"name\":\"INF-450\",\"status\":\"false\"},{\"name\":\"INF-910\",\"status\":\"false\"}]," +
-                "\"Decimo\":[{\"name\":\"ADM-900\",\"status\":\"false\"},{\"name\":\"IID-945\",\"status\":\"false\"},{\"name\":\"INF-344\",\"status\":\"false\"},{\"name\":\"INF-345\",\"status\":\"false\"},{\"name\":\"INF-433\",\"status\":\"false\"},{\"name\":\"INF-920\",\"status\":\"false\"}]," +
-                "\"DecimoPrimer\":[{\"name\":\"DPG-010\",\"status\":\"false\"},{\"name\":\"IID-025\",\"status\":\"false\"},{\"name\":\"INF-025\",\"status\":\"false\"},{\"name\":\"INF-820\",\"status\":\"false\"},{\"name\":\"SOC-160\",\"status\":\"false\"}]," +
-                "\"DecimoSegundo\":[{\"name\":\"INF-008\",\"status\":\"false\"}]," +
-                "\"Electivas\":[{\"name\":\"IEL-200\",\"status\":\"false\"},{\"name\":\"IEL-205\",\"status\":\"false\"},{\"name\":\"INF-022\",\"status\":\"false\"},{\"name\":\"INF-023\",\"status\":\"false\"},{\"name\":\"INF-024\",\"status\":\"false\"},{\"name\":\"INF-026\",\"status\":\"false\"}]}";
             if (File.Exists(path))
             {
                 using (JsonDocument document = JsonDocument.Parse(File.ReadAllText(path)))
@@ -3195,7 +3197,12 @@ namespace APOLO
                 File.WriteAllText(path, jsonString);
             }
         }
+        public void JsonUpdate(string path)
+        {
 
+        }
+
+        #endregion
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             Thread.Sleep(0);
