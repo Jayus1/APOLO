@@ -40,3 +40,5 @@ C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net6.0-windows\refint\A
 C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net6.0-windows\APOLO.pdb
 C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net6.0-windows\APOLO.genruntimeconfig.cache
 C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net6.0-windows\ref\APOLO.dll
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net6.0-windows\APOLO.csproj.CopyComplete

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CAjKBTrBI7m8ub4c6KWsMk0d7fY01eXdYy21wE8l86YGLlmbQj8IPsOY9KAPZZ0lO69atnY/mCMDZ7pSEEm5JQ==",
+  "dgSpecHash": "yVUd5eAWFZ9FRNYQG546i7jJ7kRNo95GTJoKclr7gU+0u1GpJruk3vtohwNKBZLHuj95QDYwIquuNddum3T6cg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Julio Sierra\\source\\repos\\APOLO\\APOLO\\APOLO.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Julio Sierra\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

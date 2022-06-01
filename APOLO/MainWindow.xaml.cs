@@ -18,6 +18,8 @@ using System.ComponentModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace APOLO
 {
@@ -30,7 +32,7 @@ namespace APOLO
         {
             DataContext = this;
             InitializeComponent();
-            Exist(Path);
+            Exist(Path, jsonString);
             Thread update = new Thread(UpdateThread);
             update.IsBackground = true;
             update.Start();
@@ -40,6 +42,20 @@ namespace APOLO
         private string noAvailable; // = "72";
         private string take; // = "0";
         public string Path { get => @"C:\Windows\Temp\ApoloData.json"; }
+        private string jsonString = "{" +
+                "\"Primer\":[{\"name\":\"ESP-095\",\"status\":\"false\"},{\"name\":\"INF-117\",\"status\":\"false\"},{\"name\":\"ING-105\",\"status\":\"false\"},{\"name\":\"MAT-115\",\"status\":\"false\"},{\"name\":\"MAT-160\",\"status\":\"false\"},{\"name\":\"ORI-112\",\"status\":\"false\"},{\"name\":\"SOC-116\",\"status\":\"false\"},{\"name\":\"SOC-180\",\"status\":\"false\"}]," +
+                "\"Segundo\":[{\"name\":\"ESP-181\",\"status\":\"false\"},{\"name\":\"INF-164\",\"status\":\"false\"},{\"name\":\"INF-165\",\"status\":\"false\"},{\"name\":\"INF-204\",\"status\":\"false\"},{\"name\":\"ING-115\",\"status\":\"false\"},{\"name\":\"MAT-170\",\"status\":\"false\"},{\"name\":\"MAT-190\",\"status\":\"false\"},{\"name\":\"MAT-191\",\"status\":\"false\"},{\"name\":\"SOC-150\",\"status\":\"false\"}]," +
+                "\"Tercero\":[{\"name\":\"ESP-189\",\"status\":\"false\"},{\"name\":\"INF-121\",\"status\":\"false\"},{\"name\":\"INF-167\",\"status\":\"false\"},{\"name\":\"INF-168\",\"status\":\"false\"},{\"name\":\"ING-125\",\"status\":\"false\"},{\"name\":\"MAT-340\",\"status\":\"false\"},{\"name\":\"MAT-500\",\"status\":\"false\"},{\"name\":\"MAT-501\",\"status\":\"false\"},{\"name\":\"MED-750\",\"status\":\"false\"},{\"name\":\"MED-755\",\"status\":\"false\"}]," +
+                "\"Cuarto\":[{\"name\":\"IEL-100\",\"status\":\"false\"},{\"name\":\"IEL-105\",\"status\":\"false\"},{\"name\":\"INF-171\",\"status\":\"false\"},{\"name\":\"INF-172\",\"status\":\"false\"},{\"name\":\"INF-173\",\"status\":\"false\"},{\"name\":\"INF-385\",\"status\":\"false\"},{\"name\":\"INF-387\",\"status\":\"false\"},{\"name\":\"ING-165\",\"status\":\"false\"},{\"name\":\"MAT-350\",\"status\":\"false\"}],\"Quinto\":[{\"name\":\"DIB-520\",\"status\":\"false\"},{\"name\":\"IID-420\",\"status\":\"false\"},{\"name\":\"INF-440\",\"status\":\"false\"},{\"name\":\"INF-445\",\"status\":\"false\"},{\"name\":\"INF-481\",\"status\":\"false\"},{\"name\":\"INF-482\",\"status\":\"false\"},{\"name\":\"INF-535\",\"status\":\"false\"},{\"name\":\"MAT-360\",\"status\":\"false\"},{\"name\":\"SOC-700\",\"status\":\"false\"}]," +
+                "\"Sexto\":[{\"name\":\"INF-184\",\"status\":\"false\"},{\"name\":\"INF-185\",\"status\":\"false\"},{\"name\":\"INF-213\",\"status\":\"false\"},{\"name\":\"INF-214\",\"status\":\"false\"},{\"name\":\"INF-225\",\"status\":\"false\"},{\"name\":\"INF-331\",\"status\":\"false\"},{\"name\":\"MAT-135\",\"status\":\"false\"},{\"name\":\"SOC-140\",\"status\":\"false\"}]," +
+                "\"Septimo\":[{\"name\":\"ESP-301\",\"status\":\"false\"},{\"name\":\"INF-502\",\"status\":\"false\"},{\"name\":\"INF-503\",\"status\":\"false\"},{\"name\":\"INF-700\",\"status\":\"false\"},{\"name\":\"INF-705\",\"status\":\"false\"},{\"name\":\"INF-706\",\"status\":\"false\"},{\"name\":\"MAT-145\",\"status\":\"false\"},{\"name\":\"SOC-170\",\"status\":\"false\"}]," +
+                "\"Octavo\":[{\"name\":\"IID-725\",\"status\":\"false\"},{\"name\":\"INF-241\",\"status\":\"false\"},{\"name\":\"INF-810\",\"status\":\"false\"},{\"name\":\"INF-840\",\"status\":\"false\"}]," +
+                "\"Novena\":[{\"name\":\"ADM-910\",\"status\":\"false\"},{\"name\":\"IID-830\",\"status\":\"false\"},{\"name\":\"INF-021\",\"status\":\"false\"},{\"name\":\"INF-411\",\"status\":\"false\"},{\"name\":\"INF-412\",\"status\":\"false\"},{\"name\":\"INF-450\",\"status\":\"false\"},{\"name\":\"INF-910\",\"status\":\"false\"}]," +
+                "\"Decimo\":[{\"name\":\"ADM-900\",\"status\":\"false\"},{\"name\":\"IID-945\",\"status\":\"false\"},{\"name\":\"INF-344\",\"status\":\"false\"},{\"name\":\"INF-345\",\"status\":\"false\"},{\"name\":\"INF-433\",\"status\":\"false\"},{\"name\":\"INF-920\",\"status\":\"false\"}]," +
+                "\"DecimoPrimer\":[{\"name\":\"DPG-010\",\"status\":\"false\"},{\"name\":\"IID-025\",\"status\":\"false\"},{\"name\":\"INF-025\",\"status\":\"false\"},{\"name\":\"INF-820\",\"status\":\"false\"},{\"name\":\"SOC-160\",\"status\":\"false\"}]," +
+                "\"DecimoSegundo\":[{\"name\":\"INF-008\",\"status\":\"false\"}]," +
+                "\"Electivas\":[{\"name\":\"IEL-200\",\"status\":\"false\"},{\"name\":\"IEL-205\",\"status\":\"false\"},{\"name\":\"INF-022\",\"status\":\"false\"},{\"name\":\"INF-023\",\"status\":\"false\"},{\"name\":\"INF-024\",\"status\":\"false\"},{\"name\":\"INF-026\",\"status\":\"false\"}]}";
+
 
         public string Available { get => available; set { available = value; OnPropertyChanged("Available"); }  }
         public string NoAvailable { get => noAvailable; set { noAvailable = value; OnPropertyChanged("NoAvailable"); } }
@@ -56,7 +72,7 @@ namespace APOLO
             }
         }
 
- #region 'Contadores'
+ #region Contadores
         public void Count()
         {
             Available = "0";
@@ -1293,6 +1309,7 @@ namespace APOLO
                     {
                         Update();
                         Count();
+                        JsonUpdate(Path);
 
                     });
                     Thread.Sleep(100);
@@ -2485,9 +2502,9 @@ namespace APOLO
             
         }
 
-        public void Exist(string path)
+        #region Json
+        public void Exist(string path, string jsonString)
         {
-            string jsonString = "{\"Primer\":[{\"name\":\"ESP-095\",\"status\":\"false\"},{\"name\":\"INF-117\",\"status\":\"false\"},{\"name\":\"ING-105\",\"status\":\"false\"},{\"name\":\"MAT-115\",\"status\":\"false\"},{\"name\":\"MAT-160\",\"status\":\"false\"},{\"name\":\"ORI-112\",\"status\":\"false\"},{\"name\":\"SOC-116\",\"status\":\"false\"},{\"name\":\"SOC-180\",\"status\":\"false\"}],\"Segundo\":[{\"name\":\"ESP-181\",\"status\":\"false\"},{\"name\":\"INF-164\",\"status\":\"false\"},{\"name\":\"INF-165\",\"status\":\"false\"},{\"name\":\"INF-204\",\"status\":\"false\"},{\"name\":\"ING-115\",\"status\":\"false\"},{\"name\":\"MAT-170\",\"status\":\"false\"},{\"name\":\"MAT-190\",\"status\":\"false\"},{\"name\":\"MAT-191\",\"status\":\"false\"},{\"name\":\"SOC-150\",\"status\":\"false\"}],\"Tercero\":[{\"name\":\"ESP-189\",\"status\":\"false\"},{\"name\":\"INF-121\",\"status\":\"false\"},{\"name\":\"INF-167\",\"status\":\"false\"},{\"name\":\"INF-168\",\"status\":\"false\"},{\"name\":\"ING-125\",\"status\":\"false\"},{\"name\":\"MAT-340\",\"status\":\"false\"},{\"name\":\"MAT-500\",\"status\":\"false\"},{\"name\":\"MAT-501\",\"status\":\"false\"},{\"name\":\"MED-750\",\"status\":\"false\"},{\"name\":\"MED-755\",\"status\":\"false\"}],\"Cuarto\":[{\"name\":\"IEL-100\",\"status\":\"false\"},{\"name\":\"IEL-105\",\"status\":\"false\"},{\"name\":\"INF-171\",\"status\":\"false\"},{\"name\":\"INF-172\",\"status\":\"false\"},{\"name\":\"INF-173\",\"status\":\"false\"},{\"name\":\"INF-385\",\"status\":\"false\"},{\"name\":\"INF-387\",\"status\":\"false\"},{\"name\":\"ING-165\",\"status\":\"false\"},{\"name\":\"MAT-350\",\"status\":\"false\"}],\"Quinto\":[{\"name\":\"DIB-520\",\"status\":\"false\"},{\"name\":\"IID-420\",\"status\":\"false\"},{\"name\":\"INF-440\",\"status\":\"false\"},{\"name\":\"INF-445\",\"status\":\"false\"},{\"name\":\"INF-481\",\"status\":\"false\"},{\"name\":\"INF-482\",\"status\":\"false\"},{\"name\":\"INF-535\",\"status\":\"false\"},{\"name\":\"MAT-360\",\"status\":\"false\"},{\"name\":\"SOC-700\",\"status\":\"false\"}],\"Sexto\":[{\"name\":\"INF-184\",\"status\":\"false\"},{\"name\":\"INF-185\",\"status\":\"false\"},{\"name\":\"INF-213\",\"status\":\"false\"},{\"name\":\"INF-214\",\"status\":\"false\"},{\"name\":\"INF-225\",\"status\":\"false\"},{\"name\":\"INF-331\",\"status\":\"false\"},{\"name\":\"MAT-135\",\"status\":\"false\"},{\"name\":\"SOC-140\",\"status\":\"false\"}],\"Septimo\":[{\"name\":\"ESP-301\",\"status\":\"false\"},{\"name\":\"INF-502\",\"status\":\"false\"},{\"name\":\"INF-503\",\"status\":\"false\"},{\"name\":\"INF-700\",\"status\":\"false\"},{\"name\":\"INF-705\",\"status\":\"false\"},{\"name\":\"INF-706\",\"status\":\"false\"},{\"name\":\"MAT-145\",\"status\":\"false\"},{\"name\":\"SOC-170\",\"status\":\"false\"}],\"Octavo\":[{\"name\":\"IID-725\",\"status\":\"false\"},{\"name\":\"INF-241\",\"status\":\"false\"},{\"name\":\"INF-810\",\"status\":\"false\"},{\"name\":\"INF-840\",\"status\":\"false\"}],\"Novena\":[{\"name\":\"ADM-910\",\"status\":\"false\"},{\"name\":\"IID-830\",\"status\":\"false\"},{\"name\":\"INF-021\",\"status\":\"false\"},{\"name\":\"INF-411\",\"status\":\"false\"},{\"name\":\"INF-412\",\"status\":\"false\"},{\"name\":\"INF-450\",\"status\":\"false\"},{\"name\":\"INF-910\",\"status\":\"false\"}],\"Decimo\":[{\"name\":\"ADM-900\",\"status\":\"false\"},{\"name\":\"IID-945\",\"status\":\"false\"},{\"name\":\"INF-344\",\"status\":\"false\"},{\"name\":\"INF-345\",\"status\":\"false\"},{\"name\":\"INF-433\",\"status\":\"false\"},{\"name\":\"INF-920\",\"status\":\"false\"}],\"DecimoPrimer\":[{\"name\":\"DPG-010\",\"status\":\"false\"},{\"name\":\"IID-025\",\"status\":\"false\"},{\"name\":\"INF-025\",\"status\":\"false\"},{\"name\":\"INF-820\",\"status\":\"false\"},{\"name\":\"SOC-160\",\"status\":\"false\"}],\"DecimoSegundo\":[{\"name\":\"INF-008\",\"status\":\"false\"}],\"Electivas\":[{\"name\":\"IEL-200\",\"status\":\"false\"},{\"name\":\"IEL-205\",\"status\":\"false\"},{\"name\":\"INF-022\",\"status\":\"false\"},{\"name\":\"INF-023\",\"status\":\"false\"},{\"name\":\"INF-024\",\"status\":\"false\"},{\"name\":\"INF-026\",\"status\":\"false\"}]}";
             if (File.Exists(path))
             {
                 using (JsonDocument document = JsonDocument.Parse(File.ReadAllText(path)))
@@ -2503,21 +2520,679 @@ namespace APOLO
                     JsonElement octavo = root.GetProperty("Octavo");
                     JsonElement novena = root.GetProperty("Novena");
                     JsonElement decimo = root.GetProperty("Decimo");
-                    JsonElement decimo_Primer = root.GetProperty("Decimo Primer");
-                    JsonElement decimo_Segundo = root.GetProperty("Decimo Segundo");
+                    JsonElement decimo_Primer = root.GetProperty("DecimoPrimer");
+                    JsonElement decimo_Segundo = root.GetProperty("DecimoSegundo");
                     JsonElement electivas = root.GetProperty("Electivas");
 
                     foreach (JsonElement checkbox in primer.EnumerateArray())
                     {
                         if (Convert.ToString(checkbox.GetProperty("name")) == "ESP-095")
                         {
-                            if (Convert.ToString(checkbox.GetProperty("status")) == "false")
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
                             {
                                 ESP095.IsChecked = true;
                             }
-                        } 
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-117")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF117.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "ING-105")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                ING105.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-115")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT115.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-160")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT160.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "ORI-112")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                ORI112.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "SOC-116")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                SOC116.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "SOC-180")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                SOC180.IsChecked = true;
+                            }
+                        }
                     }
-
+                    foreach(JsonElement checkbox in segundo.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "ESP-181")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                ESP181.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-164")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF164.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-165")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF165.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-204")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF204.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "ING-115")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                ING115.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-170")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT170.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-190")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT190.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-191")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT191.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "SOC-150")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                SOC150.IsChecked = true;
+                            }
+                        }
+                    }
+                    foreach(JsonElement checkbox in tercer.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "ESP-189")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                ESP189.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-121")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF121.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-167")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF167.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-168")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF168.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "ING-125")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                ING125.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-340")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT340.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-500")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT500.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-501")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT501.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MED-750")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MED750.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MED-755")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MED755.IsChecked = true;
+                            }
+                        }
+                    }
+                    foreach (JsonElement checkbox in cuarto.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "IEL-100")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                IEL100.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "IEL-105")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                IEL105.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-171")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF171.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-172")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF172.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-173")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF173.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-385")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF385.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-387")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF387.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "ING-165")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                ING165.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-350")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT350.IsChecked = true;
+                            }
+                        }
+                    }
+                    foreach (JsonElement checkbox in quinto.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "DIB-520")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                DIB520.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "IID-420")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                IID420.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-440")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF440.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-445")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF445.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-481")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF481.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-482")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF482.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-535")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF535.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "SOC-700")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                SOC700.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-360")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT360.IsChecked = true;
+                            }
+                        }
+                    }
+                    foreach (JsonElement checkbox in sexto.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-184")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF184.IsChecked = true; 
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-185")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF185.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-213")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF213.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-214")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF214.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-225")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF225.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-331")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF331.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-135")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT135.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "SOC-140")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                SOC140.IsChecked = true;
+                            }
+                        }
+                    }
+                    foreach (JsonElement checkbox in septimo.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "ESP-301")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                ESP301.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-502")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF502.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-503")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF503.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-700")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF700.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-705")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF705.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "MAT-145")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                MAT145.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-706")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF706.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "SOC-170")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                SOC170.IsChecked = true;
+                            }
+                        }
+                    }
+                    foreach (JsonElement checkbox in octavo.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "IID-725")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                IID725.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-241")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF241.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-810")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF810.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-840")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF840.IsChecked = true;
+                            }
+                        }
+                    }
+                    foreach (JsonElement checkbox in novena.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "ADM-910")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                ADM910.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "IID-830")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                IID830.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-021")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF021.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-411")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF411.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-412")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF412.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-450")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF450.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-910")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF910.IsChecked = true;
+                            }
+                        }
+                    }
+                    foreach (JsonElement checkbox in decimo.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "ADM-900")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                ADM900.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "IID-945")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                IID945.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-344")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF344.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-345")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF345.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-433")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF433.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-920")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF920.IsChecked = true;
+                            }
+                        }
+                    }
+                    foreach (JsonElement checkbox in decimo_Primer.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "DPG-010")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                DPG010.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "IID-025")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                IID025.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-025")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF025.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-820")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF820.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "SOC-160")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                SOC160.IsChecked = true;
+                            }
+                        }
+                    }
+                    foreach (JsonElement checkbox in decimo_Segundo.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-008")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF008.IsChecked = true;
+                            }
+                        }
+                    }
+                    foreach (JsonElement checkbox in electivas.EnumerateArray())
+                    {
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "IEL-200")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                IEL200.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "IEL-205")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                IEL205.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-022")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF022.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-023")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF023.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-024")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF024.IsChecked = true;
+                            }
+                        }
+                        if (Convert.ToString(checkbox.GetProperty("name")) == "INF-026")
+                        {
+                            if (Convert.ToString(checkbox.GetProperty("status")) == "true")
+                            {
+                                INF026.IsChecked = true;
+                            }
+                        }
+                    }
                 }
             }
             else
@@ -2525,7 +3200,499 @@ namespace APOLO
                 File.WriteAllText(path, jsonString);
             }
         }
+        public void JsonUpdate(string path)
+        {
+            string json = File.ReadAllText(path);
+            dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+            #region PRIMER CUATRIMESTRE
+            //ESP-095
+            if (Convert.ToBoolean(ESP095.IsChecked))
+            {
+                
+                jsonObj["Primer"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-117
+            if (Convert.ToBoolean(INF117.IsChecked))
+            {
 
+                jsonObj["Primer"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //ING-105
+            if (Convert.ToBoolean(ING105.IsChecked))
+            {
+
+                jsonObj["Primer"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-115
+            if (Convert.ToBoolean(MAT115.IsChecked))
+            {
+
+                jsonObj["Primer"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-160
+            if (Convert.ToBoolean(MAT160.IsChecked))
+            {
+
+                jsonObj["Primer"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //ORI-112
+            if (Convert.ToBoolean(ORI112.IsChecked))
+            {
+
+                jsonObj["Primer"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //SOC-116
+            if (Convert.ToBoolean(SOC116.IsChecked))
+            {
+
+                jsonObj["Primer"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //SOC-180
+            if (Convert.ToBoolean(SOC180.IsChecked))
+            {
+
+                jsonObj["Primer"][7]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][7]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+            #region SEGUNDO CUATRIMESTRE
+            //ESP-181
+            if (Convert.ToBoolean(ESP181.IsChecked))
+            {
+                jsonObj["Segundo"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-164
+            if (Convert.ToBoolean(INF164.IsChecked))
+            {
+                jsonObj["Segundo"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-165
+            if (Convert.ToBoolean(INF165.IsChecked))
+            {
+                jsonObj["Segundo"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-204
+            if (Convert.ToBoolean(INF204.IsChecked))
+            {
+                jsonObj["Segundo"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //ING-115
+            if (Convert.ToBoolean(ING115.IsChecked))
+            {
+                jsonObj["Segundo"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-170
+            if (Convert.ToBoolean(MAT170.IsChecked))
+            {
+                jsonObj["Segundo"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-190
+            if (Convert.ToBoolean(MAT190.IsChecked))
+            {
+                jsonObj["Segundo"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-191
+            if (Convert.ToBoolean(MAT191.IsChecked))
+            {
+                jsonObj["Segundo"][7]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][7]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //SOC-150
+            if (Convert.ToBoolean(SOC150.IsChecked))
+            {
+                jsonObj["Segundo"][8]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][8]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+            #region TERCER CUATRIMESTRE
+            //ESP-189
+            if (Convert.ToBoolean(ESP189.IsChecked))
+            {
+                jsonObj["Tercero"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-121
+            if (Convert.ToBoolean(INF121.IsChecked))
+            {
+                jsonObj["Tercero"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-167
+            if (Convert.ToBoolean(INF167.IsChecked))
+            {
+                jsonObj["Tercero"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-168
+            if (Convert.ToBoolean(INF168.IsChecked))
+            {
+                jsonObj["Tercero"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //ING-125
+            if (Convert.ToBoolean(ING125.IsChecked))
+            {
+                jsonObj["Tercero"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-340
+            if (Convert.ToBoolean(MAT340.IsChecked))
+            {
+                jsonObj["Tercero"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-500
+            if (Convert.ToBoolean(MAT500.IsChecked))
+            {
+                jsonObj["Tercero"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-501
+            if (Convert.ToBoolean(MAT501.IsChecked))
+            {
+                jsonObj["Tercero"][7]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][7]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MED-750
+            if (Convert.ToBoolean(MED750.IsChecked))
+            {
+                jsonObj["Tercero"][8]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][8]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MED-755
+            if (Convert.ToBoolean(MED755.IsChecked))
+            {
+                jsonObj["Tercero"][9]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][9]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+            #region CUARTO CUATRIMESTRE
+
+            //IEL-100
+            if (Convert.ToBoolean(IEL100.IsChecked))
+            {
+                jsonObj["Cuarto"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //IEL-105
+            if (Convert.ToBoolean(IEL105.IsChecked))
+            {
+                jsonObj["Cuarto"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-171
+            if (Convert.ToBoolean(INF171.IsChecked))
+            {
+                jsonObj["Cuarto"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-172
+            if (Convert.ToBoolean(INF172.IsChecked))
+            {
+                jsonObj["Cuarto"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-173
+            if (Convert.ToBoolean(INF173.IsChecked))
+            {
+                jsonObj["Cuarto"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-385
+            if (Convert.ToBoolean(INF385.IsChecked))
+            {
+                jsonObj["Cuarto"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-387
+            if (Convert.ToBoolean(INF387.IsChecked))
+            {
+                jsonObj["Cuarto"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //ING-165
+            if (Convert.ToBoolean(ING165.IsChecked))
+            {
+                jsonObj["Cuarto"][7]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][7]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-350
+            if (Convert.ToBoolean(MAT350.IsChecked))
+            {
+                jsonObj["Cuarto"][8]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][8]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+
+            #endregion
+        }
+
+        #endregion
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             Thread.Sleep(0);
