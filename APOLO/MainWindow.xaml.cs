@@ -18,6 +18,8 @@ using System.ComponentModel;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace APOLO
 {
@@ -55,7 +57,7 @@ namespace APOLO
                 "\"Electivas\":[{\"name\":\"IEL-200\",\"status\":\"false\"},{\"name\":\"IEL-205\",\"status\":\"false\"},{\"name\":\"INF-022\",\"status\":\"false\"},{\"name\":\"INF-023\",\"status\":\"false\"},{\"name\":\"INF-024\",\"status\":\"false\"},{\"name\":\"INF-026\",\"status\":\"false\"}]}";
 
 
-        public string Available { get => available; set { available = value; OnPropertyChanged("Available"); }  }
+        public string Available { get => available; set { available = value; OnPropertyChanged("Available"); } }
         public string NoAvailable { get => noAvailable; set { noAvailable = value; OnPropertyChanged("NoAvailable"); } }
         public string Take { get => take; set { take = value; OnPropertyChanged("Take"); } }
 
@@ -64,13 +66,13 @@ namespace APOLO
         private void OnPropertyChanged(string property)  //[CallerMemberName] string property=null)
         {
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-            if(PropertyChanged != null)
+            if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(property));
             }
         }
 
- #region Contadores
+        #region Contadores
         public void Count()
         {
             Available = "0";
@@ -1292,7 +1294,7 @@ namespace APOLO
             int pass = Convert.ToInt32(Take);
             Take = Convert.ToString(pass + 1);
         }
-#endregion 
+        #endregion
 
 
         public void UpdateThread()
@@ -1307,6 +1309,7 @@ namespace APOLO
                     {
                         Update();
                         Count();
+                        JsonUpdate(Path);
 
                     });
                     Thread.Sleep(100);
@@ -1318,18 +1321,18 @@ namespace APOLO
                 Thread.Sleep(0);
             }
         }
-  
+
         public void Update()
         {
-           
-           //PRIMER CUATRIMESTRE
+
+            //PRIMER CUATRIMESTRE
             //ESP-095 y ESP-181
             if (Convert.ToBoolean(ESP095.IsChecked))
             {
                 RowESP095.Fill = new SolidColorBrush(Colors.LightBlue);
                 ESP181.IsEnabled = true;
                 RowESP181.Fill = new SolidColorBrush(Colors.LightGreen);
-                
+
             }
             else
             {
@@ -1337,10 +1340,10 @@ namespace APOLO
                 ESP181.IsEnabled = false;
                 ESP181.IsChecked = false;
                 RowESP181.Fill = new SolidColorBrush(Colors.Salmon);
-                
+
             }
             //INF-117
-            if(Convert.ToBoolean(INF117.IsChecked))
+            if (Convert.ToBoolean(INF117.IsChecked))
             {
                 RowINF117.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -1349,7 +1352,7 @@ namespace APOLO
                 RowINF117.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             //ING-105
-            if(Convert.ToBoolean(ING105.IsChecked))
+            if (Convert.ToBoolean(ING105.IsChecked))
             {
                 RowING105.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -1358,7 +1361,7 @@ namespace APOLO
                 RowING105.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             //MAT-115
-            if(Convert.ToBoolean(MAT115.IsChecked))
+            if (Convert.ToBoolean(MAT115.IsChecked))
             {
                 RowMAT115.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -1369,14 +1372,14 @@ namespace APOLO
             //MAT-160
             if (Convert.ToBoolean(MAT160.IsChecked))
             {
-                RowMAT160.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowMAT160.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             else
             {
                 RowMAT160.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             //ORI-112
-            if(Convert.ToBoolean(ORI112.IsChecked))
+            if (Convert.ToBoolean(ORI112.IsChecked))
             {
                 RowORI112.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -1385,16 +1388,16 @@ namespace APOLO
                 RowORI112.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             //SOC-116
-            if(Convert.ToBoolean(SOC116.IsChecked))
+            if (Convert.ToBoolean(SOC116.IsChecked))
             {
-                RowSOC116.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowSOC116.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             else
             {
                 RowSOC116.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             //SOC-180
-            if(Convert.ToBoolean(SOC180.IsChecked))
+            if (Convert.ToBoolean(SOC180.IsChecked))
             {
                 RowSOC180.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -1406,7 +1409,7 @@ namespace APOLO
 
             //SEGUNDO CUATRIMESTRE
             //ESP-181
-            if(Convert.ToBoolean(ESP181.IsChecked))
+            if (Convert.ToBoolean(ESP181.IsChecked))
             {
                 RowESP181.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -1418,7 +1421,7 @@ namespace APOLO
                 INF165.IsEnabled = true;
                 RowINF165.Fill = new SolidColorBrush(Colors.LightGreen);
                 INF204.IsEnabled = true;
-                RowINF204.Fill= new SolidColorBrush(Colors.LightGreen);
+                RowINF204.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             else
             {
@@ -1445,7 +1448,7 @@ namespace APOLO
                 RowINF204.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //ING-115
-            if(Convert.ToBoolean(ING105.IsChecked))
+            if (Convert.ToBoolean(ING105.IsChecked))
             {
                 ING115.IsEnabled = true;
                 RowING115.Fill = new SolidColorBrush(Colors.LightGreen);
@@ -1461,14 +1464,14 @@ namespace APOLO
                 RowING115.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //MAT-170, MAT-190 Y MAT-191
-            if(Convert.ToBoolean(MAT160.IsChecked))
+            if (Convert.ToBoolean(MAT160.IsChecked))
             {
                 MAT170.IsEnabled = true;
                 RowMAT170.Fill = new SolidColorBrush(Colors.LightGreen);
                 MAT190.IsEnabled = true;
-                RowMAT190.Fill= new SolidColorBrush(Colors.LightGreen);
+                RowMAT190.Fill = new SolidColorBrush(Colors.LightGreen);
                 MAT191.IsEnabled = true;
-                RowMAT191.Fill= new SolidColorBrush(Colors.LightGreen);
+                RowMAT191.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             else
             {
@@ -1484,7 +1487,7 @@ namespace APOLO
             }
             if (Convert.ToBoolean(MAT170.IsChecked))
             {
-                RowMAT170.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowMAT170.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             if (Convert.ToBoolean(MAT190.IsChecked))
             {
@@ -1495,7 +1498,7 @@ namespace APOLO
                 RowMAT191.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //SOC-150
-            if(Convert.ToBoolean(SOC150.IsChecked))
+            if (Convert.ToBoolean(SOC150.IsChecked))
             {
                 RowSOC150.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -1507,10 +1510,10 @@ namespace APOLO
 
             //TERCER CUATRIMESTRE
             //ESP-189
-            if(Convert.ToBoolean(ESP181.IsChecked))
+            if (Convert.ToBoolean(ESP181.IsChecked))
             {
                 ESP189.IsEnabled = true;
-                RowESP189.Fill= new SolidColorBrush(Colors.LightGreen);
+                RowESP189.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             else
             {
@@ -1518,15 +1521,15 @@ namespace APOLO
                 ESP189.IsChecked = false;
                 RowESP189.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(ESP189.IsChecked))
+            if (Convert.ToBoolean(ESP189.IsChecked))
             {
                 RowESP189.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-121, INF-167 y INF-168
-            if(Convert.ToBoolean(INF164.IsChecked) && Convert.ToBoolean(INF165.IsChecked))
+            if (Convert.ToBoolean(INF164.IsChecked) && Convert.ToBoolean(INF165.IsChecked))
             {
-                INF121.IsEnabled=true;
-                RowINF121.Fill= new SolidColorBrush(Colors.LightGreen);
+                INF121.IsEnabled = true;
+                RowINF121.Fill = new SolidColorBrush(Colors.LightGreen);
                 INF167.IsEnabled = true;
                 RowINF167.Fill = new SolidColorBrush(Colors.LightGreen);
                 INF168.IsEnabled = true;
@@ -1607,25 +1610,25 @@ namespace APOLO
             }
             if (Convert.ToBoolean(MAT500.IsChecked))
             {
-                RowMAT500.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowMAT500.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             if (Convert.ToBoolean(MAT501.IsChecked))
             {
                 RowMAT501.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //MED-750
-            if(Convert.ToBoolean(MED750.IsChecked))
+            if (Convert.ToBoolean(MED750.IsChecked))
             {
-                RowMED750.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowMED750.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             else
             {
                 RowMED750.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             //MED-755
-            if(Convert.ToBoolean(MED755.IsChecked))
+            if (Convert.ToBoolean(MED755.IsChecked))
             {
-                RowMED755.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowMED755.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             else
             {
@@ -1635,10 +1638,10 @@ namespace APOLO
 
             //CUARTO CUATRIMESTRE
             //IEL-100 y IEL-105
-            if(Convert.ToBoolean(MAT500.IsChecked) && Convert.ToBoolean(MAT501.IsChecked))
+            if (Convert.ToBoolean(MAT500.IsChecked) && Convert.ToBoolean(MAT501.IsChecked))
             {
                 IEL100.IsEnabled = true;
-                RowIEL100.Fill= new SolidColorBrush(Colors.LightGreen);
+                RowIEL100.Fill = new SolidColorBrush(Colors.LightGreen);
                 IEL105.IsEnabled = true;
                 RowIEL105.Fill = new SolidColorBrush(Colors.LightGreen);
             }
@@ -1651,21 +1654,21 @@ namespace APOLO
                 IEL105.IsChecked = false;
                 RowIEL105.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(IEL100.IsChecked))
+            if (Convert.ToBoolean(IEL100.IsChecked))
             {
-                RowIEL100.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowIEL100.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             if (Convert.ToBoolean(IEL105.IsChecked))
             {
                 RowIEL105.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-171, INF-172, INF-173, INF-385 Y INF-387
-            if (Convert.ToBoolean(INF121.IsChecked)&&Convert.ToBoolean(INF167.IsChecked)&&Convert.ToBoolean(INF168.IsChecked))
+            if (Convert.ToBoolean(INF121.IsChecked) && Convert.ToBoolean(INF167.IsChecked) && Convert.ToBoolean(INF168.IsChecked))
             {
-                INF171.IsEnabled=true;
-                RowINF171.Fill= new SolidColorBrush(Colors.LightGreen);
-                INF172.IsEnabled=true;
-                RowINF172.Fill= new SolidColorBrush(Colors.LightGreen);
+                INF171.IsEnabled = true;
+                RowINF171.Fill = new SolidColorBrush(Colors.LightGreen);
+                INF172.IsEnabled = true;
+                RowINF172.Fill = new SolidColorBrush(Colors.LightGreen);
                 INF173.IsEnabled = true;
                 RowINF173.Fill = new SolidColorBrush(Colors.LightGreen);
                 INF385.IsEnabled = true;
@@ -1691,7 +1694,7 @@ namespace APOLO
                 INF387.IsChecked = false;
                 RowINF387.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF171.IsChecked))
+            if (Convert.ToBoolean(INF171.IsChecked))
             {
                 RowINF171.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -1792,17 +1795,17 @@ namespace APOLO
             //INF-481, INF-482 y INF-535
             if (Convert.ToBoolean(INF171.IsChecked) && Convert.ToBoolean(INF385.IsChecked) && Convert.ToBoolean(INF387.IsChecked))
             {
-                INF481.IsEnabled=true;
+                INF481.IsEnabled = true;
                 RowINF481.Fill = new SolidColorBrush(Colors.LightGreen);
-                INF482.IsEnabled=true;
-                RowINF482.Fill= new SolidColorBrush(Colors.LightGreen);
-                INF535.IsEnabled=true;
-                RowINF535.Fill= new SolidColorBrush(Colors.LightGreen);
+                INF482.IsEnabled = true;
+                RowINF482.Fill = new SolidColorBrush(Colors.LightGreen);
+                INF535.IsEnabled = true;
+                RowINF535.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             else
             {
                 INF481.IsEnabled = false;
-                INF481.IsChecked=false;
+                INF481.IsChecked = false;
                 RowINF481.Fill = new SolidColorBrush(Colors.Salmon);
                 INF482.IsEnabled = false;
                 INF482.IsChecked = false;
@@ -1852,12 +1855,12 @@ namespace APOLO
 
             //SEXTO CUATRIMESTRE
             //INF-184 Y INF-185
-            if (Convert.ToBoolean(INF440.IsChecked)&& Convert.ToBoolean(INF445.IsChecked))
+            if (Convert.ToBoolean(INF440.IsChecked) && Convert.ToBoolean(INF445.IsChecked))
             {
                 INF184.IsEnabled = true;
-                RowINF184.Fill= new SolidColorBrush(Colors.LightGreen);
+                RowINF184.Fill = new SolidColorBrush(Colors.LightGreen);
                 INF185.IsEnabled = true;
-                RowINF185.Fill= new SolidColorBrush(Colors.LightGreen);
+                RowINF185.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             else
             {
@@ -1870,17 +1873,17 @@ namespace APOLO
             }
             if (Convert.ToBoolean(INF184.IsChecked))
             {
-                RowINF184.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowINF184.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             if (Convert.ToBoolean(INF185.IsChecked))
             {
-                RowINF185.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowINF185.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-213 Y INF-214
             if (Convert.ToBoolean(INF172.IsChecked) && Convert.ToBoolean(INF173.IsChecked))
             {
                 INF213.IsEnabled = true;
-                RowINF213.Fill= new SolidColorBrush(Colors.LightGreen);
+                RowINF213.Fill = new SolidColorBrush(Colors.LightGreen);
                 INF214.IsEnabled = true;
                 RowINF214.Fill = new SolidColorBrush(Colors.LightGreen);
             }
@@ -1902,13 +1905,13 @@ namespace APOLO
                 RowINF214.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-225 y INF-331
-            if(Convert.ToBoolean(ESP095.IsChecked) && Convert.ToBoolean(INF117.IsChecked) && Convert.ToBoolean(ING105.IsChecked) && Convert.ToBoolean(MAT115.IsChecked) && Convert.ToBoolean(MAT160.IsChecked) && Convert.ToBoolean(ORI112.IsChecked) && Convert.ToBoolean(SOC116.IsChecked) && Convert.ToBoolean(SOC180.IsChecked) && Convert.ToBoolean(ESP181.IsChecked) && Convert.ToBoolean(INF164.IsChecked) && Convert.ToBoolean(INF165.IsChecked) && Convert.ToBoolean(INF204.IsChecked) && Convert.ToBoolean(ING115.IsChecked) && Convert.ToBoolean(MAT170.IsChecked) && Convert.ToBoolean(MAT190.IsChecked) && Convert.ToBoolean(MAT191.IsChecked) && Convert.ToBoolean(SOC150.IsChecked) && Convert.ToBoolean(ESP189.IsChecked) && Convert.ToBoolean(INF121.IsChecked) && Convert.ToBoolean(INF167.IsChecked) && Convert.ToBoolean(INF168.IsChecked) && Convert.ToBoolean(ING125.IsChecked) && Convert.ToBoolean(MAT340.IsChecked) && Convert.ToBoolean(MAT500.IsChecked) && Convert.ToBoolean(MAT501.IsChecked) && Convert.ToBoolean(MED750.IsChecked) && Convert.ToBoolean(MED755.IsChecked) && Convert.ToBoolean(IEL100.IsChecked) && Convert.ToBoolean(IEL105.IsChecked) && Convert.ToBoolean(INF171.IsChecked) && Convert.ToBoolean(INF172.IsChecked) && Convert.ToBoolean(INF173.IsChecked) && Convert.ToBoolean(INF385.IsChecked) && Convert.ToBoolean(INF387.IsChecked) && Convert.ToBoolean(ING165.IsChecked) && Convert.ToBoolean(MAT350.IsChecked) && Convert.ToBoolean(DIB520.IsChecked) && Convert.ToBoolean(IID420.IsChecked) && Convert.ToBoolean(INF440.IsChecked) && Convert.ToBoolean(INF445.IsChecked) && Convert.ToBoolean(INF481.IsChecked) && Convert.ToBoolean(INF482.IsChecked) && Convert.ToBoolean(INF535.IsChecked) && Convert.ToBoolean(MAT360.IsChecked) && Convert.ToBoolean(SOC700.IsChecked))
-            {                           
+            if (Convert.ToBoolean(ESP095.IsChecked) && Convert.ToBoolean(INF117.IsChecked) && Convert.ToBoolean(ING105.IsChecked) && Convert.ToBoolean(MAT115.IsChecked) && Convert.ToBoolean(MAT160.IsChecked) && Convert.ToBoolean(ORI112.IsChecked) && Convert.ToBoolean(SOC116.IsChecked) && Convert.ToBoolean(SOC180.IsChecked) && Convert.ToBoolean(ESP181.IsChecked) && Convert.ToBoolean(INF164.IsChecked) && Convert.ToBoolean(INF165.IsChecked) && Convert.ToBoolean(INF204.IsChecked) && Convert.ToBoolean(ING115.IsChecked) && Convert.ToBoolean(MAT170.IsChecked) && Convert.ToBoolean(MAT190.IsChecked) && Convert.ToBoolean(MAT191.IsChecked) && Convert.ToBoolean(SOC150.IsChecked) && Convert.ToBoolean(ESP189.IsChecked) && Convert.ToBoolean(INF121.IsChecked) && Convert.ToBoolean(INF167.IsChecked) && Convert.ToBoolean(INF168.IsChecked) && Convert.ToBoolean(ING125.IsChecked) && Convert.ToBoolean(MAT340.IsChecked) && Convert.ToBoolean(MAT500.IsChecked) && Convert.ToBoolean(MAT501.IsChecked) && Convert.ToBoolean(MED750.IsChecked) && Convert.ToBoolean(MED755.IsChecked) && Convert.ToBoolean(IEL100.IsChecked) && Convert.ToBoolean(IEL105.IsChecked) && Convert.ToBoolean(INF171.IsChecked) && Convert.ToBoolean(INF172.IsChecked) && Convert.ToBoolean(INF173.IsChecked) && Convert.ToBoolean(INF385.IsChecked) && Convert.ToBoolean(INF387.IsChecked) && Convert.ToBoolean(ING165.IsChecked) && Convert.ToBoolean(MAT350.IsChecked) && Convert.ToBoolean(DIB520.IsChecked) && Convert.ToBoolean(IID420.IsChecked) && Convert.ToBoolean(INF440.IsChecked) && Convert.ToBoolean(INF445.IsChecked) && Convert.ToBoolean(INF481.IsChecked) && Convert.ToBoolean(INF482.IsChecked) && Convert.ToBoolean(INF535.IsChecked) && Convert.ToBoolean(MAT360.IsChecked) && Convert.ToBoolean(SOC700.IsChecked))
+            {
                 INF225.IsEnabled = true;
                 RowINF225.Fill = new SolidColorBrush(Colors.LightGreen);
                 INF331.IsEnabled = true;
-                RowINF331.Fill = new SolidColorBrush(Colors.LightGreen);                                                                     
-            }           
+                RowINF331.Fill = new SolidColorBrush(Colors.LightGreen);
+            }
             else
             {
                 INF225.IsEnabled = false;
@@ -1918,11 +1921,11 @@ namespace APOLO
                 INF331.IsChecked = false;
                 RowINF331.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF225.IsChecked))
+            if (Convert.ToBoolean(INF225.IsChecked))
             {
-                RowINF225.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowINF225.Fill = new SolidColorBrush(Colors.LightBlue);
             }
-            if(Convert.ToBoolean(INF331.IsChecked))
+            if (Convert.ToBoolean(INF331.IsChecked))
             {
                 RowINF331.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -1955,9 +1958,9 @@ namespace APOLO
 
             //SEPTIMO CUATRIMESTRE
             //ESP-301
-            if(Convert.ToBoolean(ESP189.IsChecked))
+            if (Convert.ToBoolean(ESP189.IsChecked))
             {
-                ESP301.IsEnabled= true;
+                ESP301.IsEnabled = true;
                 RowESP301.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             else
@@ -1966,14 +1969,14 @@ namespace APOLO
                 ESP301.IsChecked = false;
                 RowESP301.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(ESP301.IsChecked))
+            if (Convert.ToBoolean(ESP301.IsChecked))
             {
                 RowESP301.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-502 Y INF-503
             if (Convert.ToBoolean(INF213.IsChecked) && Convert.ToBoolean(INF214.IsChecked))
             {
-                INF502.IsEnabled= true;
+                INF502.IsEnabled = true;
                 RowINF502.Fill = new SolidColorBrush(Colors.LightGreen);
                 INF503.IsEnabled = true;
                 RowINF503.Fill = new SolidColorBrush(Colors.LightGreen);
@@ -1987,16 +1990,16 @@ namespace APOLO
                 INF503.IsChecked = false;
                 RowINF503.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF502.IsChecked))
+            if (Convert.ToBoolean(INF502.IsChecked))
             {
-                RowINF502.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowINF502.Fill = new SolidColorBrush(Colors.LightBlue);
             }
-            if(Convert.ToBoolean(INF503.IsChecked))
+            if (Convert.ToBoolean(INF503.IsChecked))
             {
-                RowINF503.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowINF503.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-700
-            if(Convert.ToBoolean(INF184.IsChecked) && Convert.ToBoolean(INF185.IsChecked) && Convert.ToBoolean(INF440.IsChecked) && Convert.ToBoolean(INF445.IsChecked))
+            if (Convert.ToBoolean(INF184.IsChecked) && Convert.ToBoolean(INF185.IsChecked) && Convert.ToBoolean(INF440.IsChecked) && Convert.ToBoolean(INF445.IsChecked))
             {
                 INF700.IsEnabled = true;
                 RowINF700.Fill = new SolidColorBrush(Colors.LightGreen);
@@ -2006,7 +2009,7 @@ namespace APOLO
                 INF700.IsEnabled = false;
                 RowINF700.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF700.IsChecked))
+            if (Convert.ToBoolean(INF700.IsChecked))
             {
                 RowINF700.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -2027,11 +2030,11 @@ namespace APOLO
                 INF705.IsChecked = false;
                 RowINF706.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF705.IsChecked))
+            if (Convert.ToBoolean(INF705.IsChecked))
             {
                 RowINF705.Fill = new SolidColorBrush(Colors.LightBlue);
             }
-            if(Convert.ToBoolean(INF706.IsChecked))
+            if (Convert.ToBoolean(INF706.IsChecked))
             {
                 RowINF706.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -2063,7 +2066,7 @@ namespace APOLO
 
             //OCTAVO CUATRIMESTRE
             //IID-725
-            if(Convert.ToBoolean(MAT360.IsChecked))
+            if (Convert.ToBoolean(MAT360.IsChecked))
             {
                 IID725.IsEnabled = true;
                 RowIID725.Fill = new SolidColorBrush(Colors.LightGreen);
@@ -2074,7 +2077,7 @@ namespace APOLO
                 IID725.IsChecked = false;
                 RowIID725.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(IID725.IsChecked))
+            if (Convert.ToBoolean(IID725.IsChecked))
             {
                 RowIID725.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -2107,7 +2110,7 @@ namespace APOLO
             if (Convert.ToBoolean(INF535.IsChecked) && Convert.ToBoolean(INF700.IsChecked))
             {
                 INF840.IsEnabled = true;
-                RowINF840.Fill=new SolidColorBrush(Colors.LightGreen);
+                RowINF840.Fill = new SolidColorBrush(Colors.LightGreen);
 
             }
             else
@@ -2116,9 +2119,9 @@ namespace APOLO
                 INF840.IsChecked = false;
                 RowINF840.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF840.IsChecked))
+            if (Convert.ToBoolean(INF840.IsChecked))
             {
-                RowINF840.Fill= new SolidColorBrush(Colors.LightBlue);
+                RowINF840.Fill = new SolidColorBrush(Colors.LightBlue);
             }
 
 
@@ -2144,16 +2147,16 @@ namespace APOLO
                 IID830.IsChecked = false;
                 RowIID830.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(IID830.IsChecked))
+            if (Convert.ToBoolean(IID830.IsChecked))
             {
                 RowIID830.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-021 Y INF-450
-            if(Convert.ToBoolean(INF241.IsChecked))
+            if (Convert.ToBoolean(INF241.IsChecked))
             {
                 INF021.IsEnabled = true;
                 RowINF021.Fill = new SolidColorBrush(Colors.LightGreen);
-                INF450.IsEnabled=true;
+                INF450.IsEnabled = true;
                 RowINF450.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             else
@@ -2169,16 +2172,16 @@ namespace APOLO
             {
                 RowINF021.Fill = new SolidColorBrush(Colors.LightBlue);
             }
-            if(Convert.ToBoolean(INF450.IsChecked))
+            if (Convert.ToBoolean(INF450.IsChecked))
             {
                 RowINF450.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-411 Y INF-412
-            if(Convert.ToBoolean(INF184.IsChecked) && Convert.ToBoolean(INF185.IsChecked) && Convert.ToBoolean(INF440.IsChecked) && Convert.ToBoolean(INF445.IsChecked))
+            if (Convert.ToBoolean(INF184.IsChecked) && Convert.ToBoolean(INF185.IsChecked) && Convert.ToBoolean(INF440.IsChecked) && Convert.ToBoolean(INF445.IsChecked))
             {
-                INF411.IsEnabled=true;
+                INF411.IsEnabled = true;
                 RowINF411.Fill = new SolidColorBrush(Colors.LightGreen);
-                INF412.IsEnabled=true;
+                INF412.IsEnabled = true;
                 RowINF412.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             else
@@ -2190,7 +2193,7 @@ namespace APOLO
                 INF412.IsChecked = false;
                 RowINF412.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF411.IsChecked))
+            if (Convert.ToBoolean(INF411.IsChecked))
             {
                 RowINF411.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -2210,21 +2213,21 @@ namespace APOLO
                 INF910.IsChecked = false;
                 RowINF910.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF910.IsChecked))
+            if (Convert.ToBoolean(INF910.IsChecked))
             {
                 RowINF910.Fill = new SolidColorBrush(Colors.LightBlue);
             }
 
             //DECIMO CUATRIMESTRE
             //ADM-900
-            if (Convert.ToBoolean(ESP095.IsChecked) && Convert.ToBoolean(INF117.IsChecked) && Convert.ToBoolean(ING105.IsChecked) && Convert.ToBoolean(MAT115.IsChecked) && Convert.ToBoolean(MAT160.IsChecked) && Convert.ToBoolean(ORI112.IsChecked) && Convert.ToBoolean(SOC116.IsChecked) && Convert.ToBoolean(SOC180.IsChecked) && 
-                Convert.ToBoolean(ESP181.IsChecked) && Convert.ToBoolean(INF164.IsChecked) && Convert.ToBoolean(INF165.IsChecked) && Convert.ToBoolean(INF204.IsChecked) && Convert.ToBoolean(ING115.IsChecked) && Convert.ToBoolean(MAT170.IsChecked) && Convert.ToBoolean(MAT190.IsChecked) && Convert.ToBoolean(MAT191.IsChecked) && Convert.ToBoolean(SOC150.IsChecked) && 
-                Convert.ToBoolean(ESP189.IsChecked) && Convert.ToBoolean(INF121.IsChecked) && Convert.ToBoolean(INF167.IsChecked) && Convert.ToBoolean(INF168.IsChecked) && Convert.ToBoolean(ING125.IsChecked) && Convert.ToBoolean(MAT340.IsChecked) && Convert.ToBoolean(MAT500.IsChecked) && Convert.ToBoolean(MAT501.IsChecked) && Convert.ToBoolean(MED750.IsChecked) && Convert.ToBoolean(MED755.IsChecked) && 
-                Convert.ToBoolean(IEL100.IsChecked) && Convert.ToBoolean(IEL105.IsChecked) && Convert.ToBoolean(INF171.IsChecked) && Convert.ToBoolean(INF172.IsChecked) && Convert.ToBoolean(INF173.IsChecked) && Convert.ToBoolean(INF385.IsChecked) && Convert.ToBoolean(INF387.IsChecked) && Convert.ToBoolean(ING165.IsChecked) && Convert.ToBoolean(MAT350.IsChecked) && 
+            if (Convert.ToBoolean(ESP095.IsChecked) && Convert.ToBoolean(INF117.IsChecked) && Convert.ToBoolean(ING105.IsChecked) && Convert.ToBoolean(MAT115.IsChecked) && Convert.ToBoolean(MAT160.IsChecked) && Convert.ToBoolean(ORI112.IsChecked) && Convert.ToBoolean(SOC116.IsChecked) && Convert.ToBoolean(SOC180.IsChecked) &&
+                Convert.ToBoolean(ESP181.IsChecked) && Convert.ToBoolean(INF164.IsChecked) && Convert.ToBoolean(INF165.IsChecked) && Convert.ToBoolean(INF204.IsChecked) && Convert.ToBoolean(ING115.IsChecked) && Convert.ToBoolean(MAT170.IsChecked) && Convert.ToBoolean(MAT190.IsChecked) && Convert.ToBoolean(MAT191.IsChecked) && Convert.ToBoolean(SOC150.IsChecked) &&
+                Convert.ToBoolean(ESP189.IsChecked) && Convert.ToBoolean(INF121.IsChecked) && Convert.ToBoolean(INF167.IsChecked) && Convert.ToBoolean(INF168.IsChecked) && Convert.ToBoolean(ING125.IsChecked) && Convert.ToBoolean(MAT340.IsChecked) && Convert.ToBoolean(MAT500.IsChecked) && Convert.ToBoolean(MAT501.IsChecked) && Convert.ToBoolean(MED750.IsChecked) && Convert.ToBoolean(MED755.IsChecked) &&
+                Convert.ToBoolean(IEL100.IsChecked) && Convert.ToBoolean(IEL105.IsChecked) && Convert.ToBoolean(INF171.IsChecked) && Convert.ToBoolean(INF172.IsChecked) && Convert.ToBoolean(INF173.IsChecked) && Convert.ToBoolean(INF385.IsChecked) && Convert.ToBoolean(INF387.IsChecked) && Convert.ToBoolean(ING165.IsChecked) && Convert.ToBoolean(MAT350.IsChecked) &&
                 Convert.ToBoolean(DIB520.IsChecked) && Convert.ToBoolean(IID420.IsChecked) && Convert.ToBoolean(INF440.IsChecked) && Convert.ToBoolean(INF445.IsChecked) && Convert.ToBoolean(INF481.IsChecked) && Convert.ToBoolean(INF482.IsChecked) && Convert.ToBoolean(INF535.IsChecked) && Convert.ToBoolean(MAT360.IsChecked) && Convert.ToBoolean(SOC700.IsChecked) &&
-                Convert.ToBoolean(INF184.IsChecked) && Convert.ToBoolean(INF185.IsChecked) && Convert.ToBoolean(INF213.IsChecked) && Convert.ToBoolean(INF214.IsChecked) && Convert.ToBoolean(INF225.IsChecked) && Convert.ToBoolean(INF331.IsChecked) && Convert.ToBoolean(MAT135.IsChecked) && Convert.ToBoolean(SOC140.IsChecked) && 
-                Convert.ToBoolean(ESP301.IsChecked) && Convert.ToBoolean(INF502.IsChecked) && Convert.ToBoolean(INF503.IsChecked) && Convert.ToBoolean(INF700.IsChecked) && Convert.ToBoolean(INF705.IsChecked) && Convert.ToBoolean(INF706.IsChecked) && Convert.ToBoolean(MAT145.IsChecked) && Convert.ToBoolean(SOC170.IsChecked) && 
-                Convert.ToBoolean(IID725.IsChecked) && Convert.ToBoolean(INF241.IsChecked) && Convert.ToBoolean(INF810.IsChecked) && Convert.ToBoolean(INF840.IsChecked) && 
+                Convert.ToBoolean(INF184.IsChecked) && Convert.ToBoolean(INF185.IsChecked) && Convert.ToBoolean(INF213.IsChecked) && Convert.ToBoolean(INF214.IsChecked) && Convert.ToBoolean(INF225.IsChecked) && Convert.ToBoolean(INF331.IsChecked) && Convert.ToBoolean(MAT135.IsChecked) && Convert.ToBoolean(SOC140.IsChecked) &&
+                Convert.ToBoolean(ESP301.IsChecked) && Convert.ToBoolean(INF502.IsChecked) && Convert.ToBoolean(INF503.IsChecked) && Convert.ToBoolean(INF700.IsChecked) && Convert.ToBoolean(INF705.IsChecked) && Convert.ToBoolean(INF706.IsChecked) && Convert.ToBoolean(MAT145.IsChecked) && Convert.ToBoolean(SOC170.IsChecked) &&
+                Convert.ToBoolean(IID725.IsChecked) && Convert.ToBoolean(INF241.IsChecked) && Convert.ToBoolean(INF810.IsChecked) && Convert.ToBoolean(INF840.IsChecked) &&
                 Convert.ToBoolean(ADM910.IsChecked) && Convert.ToBoolean(IID830.IsChecked) && Convert.ToBoolean(INF021.IsChecked) && Convert.ToBoolean(INF411.IsChecked) && Convert.ToBoolean(INF412.IsChecked) && Convert.ToBoolean(INF450.IsChecked) && Convert.ToBoolean(INF910.IsChecked))
             {
                 ADM900.IsEnabled = true;
@@ -2260,10 +2263,10 @@ namespace APOLO
                 RowIID945.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-344 Y INF-345
-            if(Convert.ToBoolean(INF411.IsChecked) && Convert.ToBoolean(INF412.IsChecked))
+            if (Convert.ToBoolean(INF411.IsChecked) && Convert.ToBoolean(INF412.IsChecked))
             {
-                INF344.IsEnabled=true;
-                RowINF344.Fill=new SolidColorBrush(Colors.LightGreen);
+                INF344.IsEnabled = true;
+                RowINF344.Fill = new SolidColorBrush(Colors.LightGreen);
                 INF345.IsEnabled = true;
                 RowINF345.Fill = new SolidColorBrush(Colors.LightGreen);
             }
@@ -2276,9 +2279,9 @@ namespace APOLO
                 INF345.IsChecked = false;
                 RowINF345.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF344.IsChecked))
+            if (Convert.ToBoolean(INF344.IsChecked))
             {
-                RowINF344.Fill=new SolidColorBrush(Colors.LightBlue);
+                RowINF344.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             if (Convert.ToBoolean(INF345.IsChecked))
             {
@@ -2296,7 +2299,7 @@ namespace APOLO
                 INF433.IsChecked = false;
                 RowINF433.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF433.IsChecked))
+            if (Convert.ToBoolean(INF433.IsChecked))
             {
                 RowINF433.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -2304,7 +2307,7 @@ namespace APOLO
             if (Convert.ToBoolean(INF184.IsChecked) && Convert.ToBoolean(INF185.IsChecked) && Convert.ToBoolean(INF502.IsChecked) && Convert.ToBoolean(INF503.IsChecked))
             {
                 INF920.IsEnabled = true;
-                RowINF920.Fill=new SolidColorBrush(Colors.LightGreen);
+                RowINF920.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             else
             {
@@ -2320,7 +2323,7 @@ namespace APOLO
 
             //DECIMO PRIMER CUATRIMESTRE
             //DPG-010
-            if(Convert.ToBoolean(ADM900.IsChecked))
+            if (Convert.ToBoolean(ADM900.IsChecked))
             {
                 DPG010.IsEnabled = true;
                 RowDPG010.Fill = new SolidColorBrush(Colors.LightGreen);
@@ -2331,7 +2334,7 @@ namespace APOLO
                 DPG010.IsChecked = false;
                 RowDPG010.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(DPG010.IsChecked))
+            if (Convert.ToBoolean(DPG010.IsChecked))
             {
                 RowDPG010.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -2347,7 +2350,7 @@ namespace APOLO
                 IID025.IsChecked = false;
                 RowIID025.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(IID025.IsChecked))
+            if (Convert.ToBoolean(IID025.IsChecked))
             {
                 RowIID025.Fill = new SolidColorBrush(Colors.LightBlue);
             }
@@ -2355,9 +2358,9 @@ namespace APOLO
             if (Convert.ToBoolean(INF705.IsChecked) && Convert.ToBoolean(INF706.IsChecked))
             {
                 INF025.IsEnabled = true;
-                RowINF025.Fill=new SolidColorBrush(Colors.LightGreen);
+                RowINF025.Fill = new SolidColorBrush(Colors.LightGreen);
             }
-            else 
+            else
             {
                 INF025.IsEnabled = false;
                 INF025.IsChecked = false;
@@ -2365,7 +2368,7 @@ namespace APOLO
             }
             if (Convert.ToBoolean(INF025.IsChecked))
             {
-                RowINF025.Fill=new SolidColorBrush(Colors.LightBlue);
+                RowINF025.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-820
             if (Convert.ToBoolean(INF344.IsChecked) && Convert.ToBoolean(INF345.IsChecked))
@@ -2395,8 +2398,8 @@ namespace APOLO
 
             //DECIMO SEGUNDO CUATRIMESTRE
             //INF-008
-            if(Convert.ToBoolean(ADM900.IsChecked) && Convert.ToBoolean(IID945.IsChecked) && Convert.ToBoolean(INF344.IsChecked) && Convert.ToBoolean(INF345.IsChecked) && Convert.ToBoolean(INF433.IsChecked) && Convert.ToBoolean(INF920.IsChecked) && 
-                Convert.ToBoolean(DPG010.IsChecked) && Convert.ToBoolean(IID025.IsChecked) && Convert.ToBoolean(INF025.IsChecked) && Convert.ToBoolean(INF820.IsChecked) && Convert.ToBoolean(SOC160.IsChecked) && 
+            if (Convert.ToBoolean(ADM900.IsChecked) && Convert.ToBoolean(IID945.IsChecked) && Convert.ToBoolean(INF344.IsChecked) && Convert.ToBoolean(INF345.IsChecked) && Convert.ToBoolean(INF433.IsChecked) && Convert.ToBoolean(INF920.IsChecked) &&
+                Convert.ToBoolean(DPG010.IsChecked) && Convert.ToBoolean(IID025.IsChecked) && Convert.ToBoolean(INF025.IsChecked) && Convert.ToBoolean(INF820.IsChecked) && Convert.ToBoolean(SOC160.IsChecked) &&
                 Convert.ToBoolean(IEL200.IsChecked) && Convert.ToBoolean(IEL205.IsChecked) && Convert.ToBoolean(INF022.IsChecked) && Convert.ToBoolean(INF023.IsChecked) && Convert.ToBoolean(INF024.IsChecked) && Convert.ToBoolean(INF026.IsChecked))
             {
                 INF008.IsEnabled = true;
@@ -2407,15 +2410,15 @@ namespace APOLO
                 INF008.IsEnabled = false;
                 RowINF008.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF008.IsChecked))
+            if (Convert.ToBoolean(INF008.IsChecked))
             {
                 RowINF008.Fill = new SolidColorBrush(Colors.LightBlue);
-               // MessageBox.Show("Felicidades, has terminado la carrera");
+                // MessageBox.Show("Felicidades, has terminado la carrera");
             }
 
             //MATERIAS ELECTIVAS
             //IEL-200 Y IEL-205
-            if (Convert.ToBoolean(IEL100.IsChecked) &&Convert.ToBoolean(IEL105.IsChecked))
+            if (Convert.ToBoolean(IEL100.IsChecked) && Convert.ToBoolean(IEL105.IsChecked))
             {
                 IEL200.IsEnabled = true;
                 RowIEL200.Fill = new SolidColorBrush(Colors.LightGreen);
@@ -2453,10 +2456,10 @@ namespace APOLO
             }
             if (Convert.ToBoolean(INF022.IsChecked))
             {
-                RowINF022.Fill=new SolidColorBrush(Colors.LightBlue);
+                RowINF022.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-023 Y INF-026
-            if(Convert.ToBoolean(INF344.IsChecked) && Convert.ToBoolean(INF345.IsChecked))
+            if (Convert.ToBoolean(INF344.IsChecked) && Convert.ToBoolean(INF345.IsChecked))
             {
                 INF023.IsEnabled = true;
                 RowINF023.Fill = new SolidColorBrush(Colors.LightGreen);
@@ -2472,18 +2475,18 @@ namespace APOLO
                 INF026.IsChecked = false;
                 RowINF026.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF023.IsChecked))
+            if (Convert.ToBoolean(INF023.IsChecked))
             {
                 RowINF023.Fill = new SolidColorBrush(Colors.LightBlue);
             }
-            if(Convert.ToBoolean(INF026.IsChecked))
+            if (Convert.ToBoolean(INF026.IsChecked))
             {
                 RowINF026.Fill = new SolidColorBrush(Colors.LightBlue);
             }
             //INF-024
-            if(Convert.ToBoolean(INF225.IsChecked))
+            if (Convert.ToBoolean(INF225.IsChecked))
             {
-                INF024.IsEnabled=true;
+                INF024.IsEnabled = true;
                 RowINF024.Fill = new SolidColorBrush(Colors.LightGreen);
             }
             else
@@ -2492,11 +2495,11 @@ namespace APOLO
                 INF024.IsChecked = false;
                 RowINF024.Fill = new SolidColorBrush(Colors.Salmon);
             }
-            if(Convert.ToBoolean(INF024.IsChecked))
+            if (Convert.ToBoolean(INF024.IsChecked))
             {
                 RowINF024.Fill = new SolidColorBrush(Colors.LightBlue);
             }
-            
+
         }
 
         #region Json
@@ -2506,7 +2509,7 @@ namespace APOLO
             {
                 using (JsonDocument document = JsonDocument.Parse(File.ReadAllText(path)))
                 {
-                    JsonElement root= document.RootElement;
+                    JsonElement root = document.RootElement;
                     JsonElement primer = root.GetProperty("Primer");
                     JsonElement segundo = root.GetProperty("Segundo");
                     JsonElement tercer = root.GetProperty("Tercero");
@@ -2580,7 +2583,7 @@ namespace APOLO
                             }
                         }
                     }
-                    foreach(JsonElement checkbox in segundo.EnumerateArray())
+                    foreach (JsonElement checkbox in segundo.EnumerateArray())
                     {
                         if (Convert.ToString(checkbox.GetProperty("name")) == "ESP-181")
                         {
@@ -2646,7 +2649,7 @@ namespace APOLO
                             }
                         }
                     }
-                    foreach(JsonElement checkbox in tercer.EnumerateArray())
+                    foreach (JsonElement checkbox in tercer.EnumerateArray())
                     {
                         if (Convert.ToString(checkbox.GetProperty("name")) == "ESP-189")
                         {
@@ -2857,7 +2860,7 @@ namespace APOLO
                         {
                             if (Convert.ToString(checkbox.GetProperty("status")) == "true")
                             {
-                                INF184.IsChecked = true; 
+                                INF184.IsChecked = true;
                             }
                         }
                         if (Convert.ToString(checkbox.GetProperty("name")) == "INF-185")
@@ -3199,6 +3202,1228 @@ namespace APOLO
         }
         public void JsonUpdate(string path)
         {
+            string json = File.ReadAllText(path);
+            dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(json);
+
+            #region PRIMER CUATRIMESTRE
+            //ESP-095
+            if (Convert.ToBoolean(ESP095.IsChecked))
+            {
+
+                jsonObj["Primer"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-117
+            if (Convert.ToBoolean(INF117.IsChecked))
+            {
+
+                jsonObj["Primer"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //ING-105
+            if (Convert.ToBoolean(ING105.IsChecked))
+            {
+
+                jsonObj["Primer"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-115
+            if (Convert.ToBoolean(MAT115.IsChecked))
+            {
+
+                jsonObj["Primer"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-160
+            if (Convert.ToBoolean(MAT160.IsChecked))
+            {
+
+                jsonObj["Primer"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //ORI-112
+            if (Convert.ToBoolean(ORI112.IsChecked))
+            {
+
+                jsonObj["Primer"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //SOC-116
+            if (Convert.ToBoolean(SOC116.IsChecked))
+            {
+
+                jsonObj["Primer"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //SOC-180
+            if (Convert.ToBoolean(SOC180.IsChecked))
+            {
+
+                jsonObj["Primer"][7]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Primer"][7]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+
+            #region SEGUNDO CUATRIMESTRE
+            //ESP-181
+            if (Convert.ToBoolean(ESP181.IsChecked))
+            {
+                jsonObj["Segundo"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-164
+            if (Convert.ToBoolean(INF164.IsChecked))
+            {
+                jsonObj["Segundo"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-165
+            if (Convert.ToBoolean(INF165.IsChecked))
+            {
+                jsonObj["Segundo"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-204
+            if (Convert.ToBoolean(INF204.IsChecked))
+            {
+                jsonObj["Segundo"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //ING-115
+            if (Convert.ToBoolean(ING115.IsChecked))
+            {
+                jsonObj["Segundo"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-170
+            if (Convert.ToBoolean(MAT170.IsChecked))
+            {
+                jsonObj["Segundo"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-190
+            if (Convert.ToBoolean(MAT190.IsChecked))
+            {
+                jsonObj["Segundo"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-191
+            if (Convert.ToBoolean(MAT191.IsChecked))
+            {
+                jsonObj["Segundo"][7]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][7]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //SOC-150
+            if (Convert.ToBoolean(SOC150.IsChecked))
+            {
+                jsonObj["Segundo"][8]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Segundo"][8]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+
+            #region TERCER CUATRIMESTRE
+            //ESP-189
+            if (Convert.ToBoolean(ESP189.IsChecked))
+            {
+                jsonObj["Tercero"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-121
+            if (Convert.ToBoolean(INF121.IsChecked))
+            {
+                jsonObj["Tercero"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-167
+            if (Convert.ToBoolean(INF167.IsChecked))
+            {
+                jsonObj["Tercero"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-168
+            if (Convert.ToBoolean(INF168.IsChecked))
+            {
+                jsonObj["Tercero"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //ING-125
+            if (Convert.ToBoolean(ING125.IsChecked))
+            {
+                jsonObj["Tercero"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-340
+            if (Convert.ToBoolean(MAT340.IsChecked))
+            {
+                jsonObj["Tercero"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-500
+            if (Convert.ToBoolean(MAT500.IsChecked))
+            {
+                jsonObj["Tercero"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-501
+            if (Convert.ToBoolean(MAT501.IsChecked))
+            {
+                jsonObj["Tercero"][7]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][7]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MED-750
+            if (Convert.ToBoolean(MED750.IsChecked))
+            {
+                jsonObj["Tercero"][8]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][8]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MED-755
+            if (Convert.ToBoolean(MED755.IsChecked))
+            {
+                jsonObj["Tercero"][9]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Tercero"][9]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+
+            #region CUARTO CUATRIMESTRE
+
+            //IEL-100
+            if (Convert.ToBoolean(IEL100.IsChecked))
+            {
+                jsonObj["Cuarto"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //IEL-105
+            if (Convert.ToBoolean(IEL105.IsChecked))
+            {
+                jsonObj["Cuarto"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-171
+            if (Convert.ToBoolean(INF171.IsChecked))
+            {
+                jsonObj["Cuarto"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-172
+            if (Convert.ToBoolean(INF172.IsChecked))
+            {
+                jsonObj["Cuarto"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-173
+            if (Convert.ToBoolean(INF173.IsChecked))
+            {
+                jsonObj["Cuarto"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-385
+            if (Convert.ToBoolean(INF385.IsChecked))
+            {
+                jsonObj["Cuarto"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-387
+            if (Convert.ToBoolean(INF387.IsChecked))
+            {
+                jsonObj["Cuarto"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //ING-165
+            if (Convert.ToBoolean(ING165.IsChecked))
+            {
+                jsonObj["Cuarto"][7]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][7]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-350
+            if (Convert.ToBoolean(MAT350.IsChecked))
+            {
+                jsonObj["Cuarto"][8]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Cuarto"][8]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+
+            #endregion
+
+            #region QUINTO CUATRIMESTRE
+            //DIB-520
+            if (Convert.ToBoolean(DIB520.IsChecked))
+            {
+                jsonObj["Quinto"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Quinto"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //IID-420
+            if (Convert.ToBoolean(IID420.IsChecked))
+            {
+                jsonObj["Quinto"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Quinto"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-440
+            if (Convert.ToBoolean(INF440.IsChecked))
+            {
+                jsonObj["Quinto"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Quinto"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-445
+            if (Convert.ToBoolean(INF445.IsChecked))
+            {
+                jsonObj["Quinto"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Quinto"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-481
+            if (Convert.ToBoolean(INF481.IsChecked))
+            {
+                jsonObj["Quinto"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Quinto"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-482
+            if (Convert.ToBoolean(INF482.IsChecked))
+            {
+                jsonObj["Quinto"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Quinto"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-535
+            if (Convert.ToBoolean(INF535.IsChecked))
+            {
+                jsonObj["Quinto"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Quinto"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-360
+            if (Convert.ToBoolean(MAT360.IsChecked))
+            {
+                jsonObj["Quinto"][7]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Quinto"][7]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //SOC-700
+            if (Convert.ToBoolean(SOC700.IsChecked))
+            {
+                jsonObj["Quinto"][8]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Quinto"][8]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+
+            #endregion
+
+            #region SEXTO CUATRIMESTRE
+            //INF-184
+            if (Convert.ToBoolean(INF184.IsChecked))
+            {
+                jsonObj["Sexto"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Sexto"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-185
+            if (Convert.ToBoolean(INF185.IsChecked))
+            {
+                jsonObj["Sexto"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Sexto"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-213
+            if (Convert.ToBoolean(INF213.IsChecked))
+            {
+                jsonObj["Sexto"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Sexto"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-214
+            if (Convert.ToBoolean(INF214.IsChecked))
+            {
+                jsonObj["Sexto"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Sexto"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-225
+            if (Convert.ToBoolean(INF225.IsChecked))
+            {
+                jsonObj["Sexto"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Sexto"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-331
+            if (Convert.ToBoolean(INF331.IsChecked))
+            {
+                jsonObj["Sexto"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Sexto"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-135
+            if (Convert.ToBoolean(MAT135.IsChecked))
+            {
+                jsonObj["Sexto"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Sexto"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //SOC-140
+            if (Convert.ToBoolean(SOC140.IsChecked))
+            {
+                jsonObj["Sexto"][7]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Sexto"][7]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+
+            #region SEPTIMO CUATRIMESTRE
+            //ESP-301
+            if (Convert.ToBoolean(ESP301.IsChecked))
+            {
+                jsonObj["Septimo"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Septimo"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-502
+            if (Convert.ToBoolean(INF502.IsChecked))
+            {
+                jsonObj["Septimo"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Septimo"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-503
+            if (Convert.ToBoolean(INF503.IsChecked))
+            {
+                jsonObj["Septimo"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Septimo"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-700
+            if (Convert.ToBoolean(INF700.IsChecked))
+            {
+                jsonObj["Septimo"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Septimo"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-705
+            if (Convert.ToBoolean(INF705.IsChecked))
+            {
+                jsonObj["Septimo"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Septimo"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-706
+            if (Convert.ToBoolean(INF706.IsChecked))
+            {
+                jsonObj["Septimo"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Septimo"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //MAT-145
+            if (Convert.ToBoolean(MAT145.IsChecked))
+            {
+                jsonObj["Septimo"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Septimo"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //SOC-170
+            if (Convert.ToBoolean(SOC170.IsChecked))
+            {
+                jsonObj["Septimo"][7]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Septimo"][7]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+
+            #region OCTAVO CUATRIMESTRE
+            //IID-725
+            if (Convert.ToBoolean(IID725.IsChecked))
+            {
+                jsonObj["Octavo"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Octavo"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-241
+            if (Convert.ToBoolean(INF241.IsChecked))
+            {
+                jsonObj["Octavo"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Octavo"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-810
+            if (Convert.ToBoolean(INF810.IsChecked))
+            {
+                jsonObj["Octavo"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Octavo"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-840
+            if (Convert.ToBoolean(INF840.IsChecked))
+            {
+                jsonObj["Octavo"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Octavo"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+
+            #region NOVENO CUATRIMESTRE
+            //ADM-910
+            if (Convert.ToBoolean(ADM910.IsChecked))
+            {
+                jsonObj["Novena"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Novena"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //IID-830
+            if (Convert.ToBoolean(IID830.IsChecked))
+            {
+                jsonObj["Novena"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Novena"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-021
+            if (Convert.ToBoolean(INF021.IsChecked))
+            {
+                jsonObj["Novena"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Novena"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-411
+            if (Convert.ToBoolean(INF411.IsChecked))
+            {
+                jsonObj["Novena"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Novena"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-412
+            if (Convert.ToBoolean(INF412.IsChecked))
+            {
+                jsonObj["Novena"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Novena"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-450
+            if (Convert.ToBoolean(INF450.IsChecked))
+            {
+                jsonObj["Novena"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Novena"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-910
+            if (Convert.ToBoolean(INF910.IsChecked))
+            {
+                jsonObj["Novena"][6]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Novena"][6]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+
+            #region DECIMO CUATRIMESTRE
+            //ADM-900
+            if (Convert.ToBoolean(ADM900.IsChecked))
+            {
+                jsonObj["Decimo"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Decimo"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //IID-945
+            if (Convert.ToBoolean(IID945.IsChecked))
+            {
+                jsonObj["Decimo"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Decimo"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-344
+            if (Convert.ToBoolean(INF344.IsChecked))
+            {
+                jsonObj["Decimo"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Decimo"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-345
+            if (Convert.ToBoolean(INF345.IsChecked))
+            {
+                jsonObj["Decimo"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Decimo"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-433
+            if (Convert.ToBoolean(INF433.IsChecked))
+            {
+                jsonObj["Decimo"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Decimo"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-920
+            if (Convert.ToBoolean(INF920.IsChecked))
+            {
+                jsonObj["Decimo"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Decimo"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+
+            #region DECIMO PRIMER CUATRIMESTRE
+            //DPG-010
+            if (Convert.ToBoolean(DPG010.IsChecked))
+            {
+                jsonObj["DecimoPrimer"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["DecimoPrimer"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //IID-025
+            if (Convert.ToBoolean(IID025.IsChecked))
+            {
+                jsonObj["DecimoPrimer"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["DecimoPrimer"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-025
+            if (Convert.ToBoolean(INF025.IsChecked))
+            {
+                jsonObj["DecimoPrimer"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["DecimoPrimer"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF-820
+            if (Convert.ToBoolean(INF820.IsChecked))
+            {
+                jsonObj["DecimoPrimer"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["DecimoPrimer"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //SOC-160
+            if (Convert.ToBoolean(SOC160.IsChecked))
+            {
+                jsonObj["DecimoPrimer"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["DecimoPrimer"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+
+            #region DECIMO SEGUNDO CUATRIMESTRE
+            //INF-008
+            if (Convert.ToBoolean(INF008.IsChecked))
+            {
+                jsonObj["DecimoSegundo"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["DecimoSegundo"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
+
+            #region ELECTIVA
+            //IEL200
+            if (Convert.ToBoolean(IEL200.IsChecked))
+            {
+                jsonObj["Electivas"][0]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Electivas"][0]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //IEL205
+            if (Convert.ToBoolean(IEL205.IsChecked))
+            {
+                jsonObj["Electivas"][1]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Electivas"][1]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF022
+            if (Convert.ToBoolean(INF022.IsChecked))
+            {
+                jsonObj["Electivas"][2]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Electivas"][2]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF023
+            if (Convert.ToBoolean(INF023.IsChecked))
+            {
+                jsonObj["Electivas"][3]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Electivas"][3]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF024
+            if (Convert.ToBoolean(INF024.IsChecked))
+            {
+                jsonObj["Electivas"][4]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Electivas"][4]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            //INF026
+            if (Convert.ToBoolean(INF026.IsChecked))
+            {
+                jsonObj["Electivas"][5]["status"] = "true";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            else
+            {
+                jsonObj["Electivas"][5]["status"] = "false";
+                string output = Newtonsoft.Json.JsonConvert.SerializeObject(jsonObj, Newtonsoft.Json.Formatting.Indented);
+                File.WriteAllText(path, output);
+            }
+            #endregion
 
         }
 
