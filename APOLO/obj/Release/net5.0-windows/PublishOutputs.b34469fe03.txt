@@ -1,0 +1,6 @@
+C:\Users\julio\Desktop\APOLO.exe
+C:\Users\julio\Desktop\APOLO.dll
+C:\Users\julio\Desktop\APOLO.deps.json
+C:\Users\julio\Desktop\APOLO.runtimeconfig.json
+C:\Users\julio\Desktop\APOLO.pdb
+C:\Users\julio\Desktop\Newtonsoft.Json.dll
