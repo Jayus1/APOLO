@@ -26,6 +26,11 @@ namespace APOLO
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    // Creador de este programa Jayus
+    // Link del Repositorio: https://github.com/Jayus1/APOLO
+    // Programa de libre uso y gratis
+    // Prohibido su venta de cualquier tipo 
+
     public partial class MainWindow : INotifyPropertyChanged
     {
         public MainWindow()
