@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:APOLO"
         mc:Ignorable="d" Closing="Window_Closing" WindowStartupLocation="CenterScreen" 
-        Title="APOLO" MinHeight="290" MinWidth="530" Height="460" Width="810" Icon="/logo.png">
+        Title="APOLO By Jayus" MinHeight="290" MinWidth="530" Height="460" Width="810" Icon="/logo.png">
     <DockPanel>
         <Grid DockPanel.Dock="Top"  Background="Gray">
             <Grid.RowDefinitions> 
@@ -21,6 +21,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" FontSize="17" HorizontalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="3">APOLO</TextBlock>
+            <TextBlock Grid.Row="0" Grid.Column="3" FontSize="17" HorizontalAlignment="Center" FontWeight="Bold">@Jayus</TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="0" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias Tomadas:</TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias Disponibles:</TextBlock>
             <TextBlock Grid.Row="1" Grid.Column="2" FontSize="15" HorizontalAlignment="Center" FontWeight="Bold">Materias No Disponibles:</TextBlock>
