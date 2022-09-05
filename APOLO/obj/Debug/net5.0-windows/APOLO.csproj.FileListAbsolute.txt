@@ -22,3 +22,27 @@ C:\Users\julio\source\repos\Jayus1\APOLO\APOLO\obj\Debug\net5.0-windows\refint\A
 C:\Users\julio\source\repos\Jayus1\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.pdb
 C:\Users\julio\source\repos\Jayus1\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.genruntimeconfig.cache
 C:\Users\julio\source\repos\Jayus1\APOLO\APOLO\obj\Debug\net5.0-windows\ref\APOLO.dll
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\bin\Debug\net5.0-windows\APOLO.exe
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\bin\Debug\net5.0-windows\APOLO.deps.json
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\bin\Debug\net5.0-windows\APOLO.runtimeconfig.json
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\bin\Debug\net5.0-windows\APOLO.runtimeconfig.dev.json
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\bin\Debug\net5.0-windows\APOLO.dll
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\bin\Debug\net5.0-windows\APOLO.pdb
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.csproj.AssemblyReference.cache
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\MainWindow.g.cs
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\App.g.cs
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO_MarkupCompile.cache
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO_MarkupCompile.lref
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\MainWindow.baml
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.g.resources
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.AssemblyInfoInputs.cache
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.AssemblyInfo.cs
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.csproj.CoreCompileInputs.cache
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.csproj.CopyComplete
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.dll
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\refint\APOLO.dll
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.pdb
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\APOLO.genruntimeconfig.cache
+C:\Users\Julio Sierra\source\repos\APOLO\APOLO\obj\Debug\net5.0-windows\ref\APOLO.dll
